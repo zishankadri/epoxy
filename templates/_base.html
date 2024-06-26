@@ -4,7 +4,7 @@
 {% comment %} {% load custom_filters %} {% endcomment %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,15 +15,21 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
     {% endcompress %}
+    <!-- Flowbite -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <link href="{% static 'fontawsome/css/fontawesome.css' %}" rel="stylesheet">
     <link href="{% static 'fontawsome/css/brands.css' %}" rel="stylesheet">
     <link href="{% static 'fontawsome/css/solid.css' %}" rel="stylesheet">
 
+    <!-- Google fonts (Roboto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     {% block head %}{% endblock head %}
 </head>
-<body class="bg-brand-dark-xl text-white">
+<body class="bg-brand-dark-xl text-white font-roboto">
     <!-- Navigation Bar -->
     
     <nav class="absolute flex w-full justify-between items-center px-8 top-0 left-0 ">
@@ -34,13 +40,13 @@
         {% endblock nav_logo %}
         <!-- Nav-links --> 
         <ul id="nav-links" class="nav-links hidden sm:flex justify-between w-full sm:w-auto gap-2 z-10">
-            <li class><a href="/">Work</a></li>
+            <li class><a href="#case-studies">Work</a></li>
             <li class><a href="/">Home</a></li>
             {% if request.user.is_superuser %}
-            <li> <a href="/admin_support/"> Support </a> </li>
+            <li> <a href="/"> Contact </a> </li>
             <li> <a href="/admin/table/Chapter/"> Admin </a> </li>
             {% else %}
-            <li> <a href="/support/"> Support </a> </li>
+            <li> <a href="/"> Contact </a> </li>
             {% endif %}
         </ul>
     </nav>
@@ -65,24 +71,22 @@
             <ul class="flex flex-col gap-2 font-light">
                 <h2 class="font-medium">Pages</h2>
 
-                <li class><a href="/">Home</a></li>
-                <li><a href="/forums/">Forums</a></li>
-                <li><a href="/midi_files/">Midi Files</a></li>
-                <li> <a href="/music_theory/"> Music Theory </a> </li>
-                <li> <a href="/profile/"> Profile </a> </li>
+                <li> <a href="/">Home</a></li>
+                <li> <a href="#case-studies"> Work </a> </li>
+                
                 {% if request.user.is_superuser %}
                 <li> <a href="/admin_support/"> Support </a> </li>
                 <li> <a href="/admin/table/Chapter/"> Admin </a> </li>
                 {% else %}
-                <li> <a href="/support/"> Support </a> </li>
+                <li> <a href="/"> Contact </a> </li>
                 {% endif %}
             </ul>
 
             <div class="flex flex-col gap-4 font-light">
                 <h2 class="font-medium">Contact</h2>
-                <div> <i class="fa-solid fa-phone w-6 text-center"></i> (406)555-0120 </div>
-                <div> <i class="fa-solid fa-envelope w-6 text-center"></i> egzix@gmail.com </div>
-                <div> <i class="fa-solid fa-location-dot w-6 text-center"></i> 2972 Westheimer Rd. Santa Ana Illinois 85486 </div>
+                <div> <i class="fa-solid fa-phone w-6 text-center"></i> 214-000-0000 </div>
+                <div> <i class="fa-solid fa-envelope w-6 text-center"></i> sales@epoxy214.com  </div>
+                <div> <i class="fa-solid fa-location-dot w-6 text-center"></i> Haslet Texas, USA </div>
             </div>
 
             <div class="flex gap-2 h-full mt-auto">
@@ -103,7 +107,7 @@
 
         <div class="flex flex-col items-center">
             <p>
-                Copyright {% now "Y" %} © Chord WIzard
+                Copyright {% now "Y" %} © Epoxy214
             </p>
             <p>
                 All Right Reserved.
@@ -129,6 +133,9 @@
         {% endfor %}
     </ul>
     {% endif %}
+    
+    <!-- Flowbite-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
 </body>
 

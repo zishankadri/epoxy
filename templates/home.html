@@ -11,9 +11,8 @@
 
 {% block main %}
 
-    <div class="relative overflow-hidden">
-
-        <div class="relative max-w-[1200px] m-auto flex pt-24 h-[450px] mb-24 overflow-x-clip">
+    <div class="max-w-[1200px] m-auto">
+        <div class="relative flex pt-24 h-[450px] mb-24 ">
             <img src="{% static "images/metallic-epoxy.png" %}" alt=""
                 class="absolute max-w-[30%] aspect-square -z-10 -top-0 left-24 opacity-70 translate-y-[-45%] rounded-br-[3rem]">
             <img src="{% static "images/blue-epoxy.png" %}" alt="" 
@@ -28,6 +27,17 @@
                     Resistance. <br>
                     Durability. <br>
                 </h1>
+            </div>
+        </div>
+        <div class="flex" id="case-studies">
+            <div class="px-24">
+                <span class="font-semibold"> 1—5 </span>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-5xl font-medium mb-12">Case Studies</h2>
+                <div class="max-w-[80%]">
+                    {% include "components/_carousel.html" %}
+                </div>
             </div>
         </div>
 

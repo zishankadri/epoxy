@@ -16,10 +16,13 @@ module.exports = {
     },
     fontFamily: {
       'poppins': ['Poppins'],
+      'roboto': ['Roboto'],
       'handlee': ['Handlee'],
       'pangolin': ['Pangolin'],
    }
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 
