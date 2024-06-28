@@ -14,9 +14,9 @@
     <div class="max-w-[1200px] m-auto">
         <div class="relative flex pt-24 h-[450px] mb-24 ">
             <img src="{% static "images/metallic-epoxy.png" %}" alt=""
-                class="absolute max-w-[30%] aspect-square -z-10 -top-0 left-24 opacity-70 translate-y-[-45%] rounded-br-[5rem]">
+                class="absolute max-w-[30%] aspect-square -z-10 -top-0 left-24 opacity-70 translate-y-[-45%] rounded-b-3xl">
             <img src="{% static "images/blue-epoxy.png" %}" alt="" 
-                class="absolute max-w-[30%] aspect-[10/8] -z-10 -bottom-24 right-0 opacity-80 rounded-tl-[5rem]">
+                class="absolute max-w-[30%] aspect-[10/8] -z-10 -bottom-24 right-0 opacity-80 rounded-l-3xl">
                 
             <!-- <div class="px-24 h-full flex items-end pb-4"> -->
             <div class="flex w-56 justify-center items-end pb-4">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <!--  -->
-        <div class="flex mb-24" id="case-studies">
+        <div class="flex" id="case-studies">
             <div class="flex w-56 justify-center">
                 <!-- <div class="px-24 bg-gray-600"> -->
                 <span class="font-semibold"> 1—5 </span>
@@ -44,14 +44,35 @@
             </div>
         </div>
         <!--  -->
-        <div class="flex" id="why-us">
+        <div class="flex mt-24" id="why-us">
             <div class="flex w-56 justify-center">
-                <i class="fa-solid fa-star-of-life"></i>
+                <i class="fa-solid fa-star-of-life text-5xl"></i>
             </div>
             <div class="flex-1">
                 <h2 class="text-5xl font-medium mb-12">Our Qualities</h2>
                 <div class="lg:max-w-[80ch]">
                     {% include "components/_faq.html" %}
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="flex mt-24" id="why-us">
+            <div class="flex w-56 justify-center">
+                <i class="fa-solid fa-palette text-5xl"></i>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-5xl font-medium mb-12">Colors</h2>
+                <div class="lg:max-w-[80ch] flex flex-wrap gap-8">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
                 </div>
             </div>
         </div>
