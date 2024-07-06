@@ -58,6 +58,73 @@
             </div>
         </div>
 
+        
+        <div class="flex mt-24 px-4 lg:px-0" id="why-us">
+            <div class="side-bar ">
+                <i class="fa-solid fa-star-of-life"></i>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-5xl font-medium mb-12 gradient-text">Our Qualities</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 mt-8 gap-5 lg:pr-8">
+                    <!-- diamond -->
+                    <div class="box">
+                        <img src="{% static "images/diamond-dark-mode--unscreen.gif" %}" alt="">
+                        <div>
+                            <h2 class="text-2xl">Top-notch quality</h2>
+                        </div>
+                        <div>
+                            <p>
+                                We use only high-grade materials for our epoxy floors, ensuring exceptional durability and strength, so your investment lasts for many years.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="{% static "images/clock-ldark-mode-unscreen.gif" %}" alt="">
+                        <div>
+                            <h2 class="text-2xl">Quick Installation</h2>
+                        </div>
+                        <div>
+                            <p>
+                                We understand the value of your time. Our streamlined process allows us to complete the installation of your epoxy floors in just one day, minimizing any disruption.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="{% static "images/saving-dark-mode--unscreen.gif" %}" alt="">
+                        <div>
+                            <h2 class="text-2xl">Free Estimates</h2>
+                        </div>
+                        <div>
+                            <p>
+                                We offer free consultations and estimates for all our services, giving you the chance to plan your project with no obligations and complete transparency.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {% comment %} <div class="lg:max-w-[80ch]">
+                    {% include "components/_faq.html" %}
+                </div> {% endcomment %}
+            </div>
+        </div>
+
+
+        <!--  -->
+        <div class="flex w-full px-4 lg:px-0 mt-24" id="case-studies">
+            <div class="side-bar">
+                <span class="font-semibold text-lg"> 1—5 </span>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-5xl font-medium mb-12 gradient-text">Case Studies</h2>
+                <div class="w-full bg-black lg:max-w-[80ch] aspect-[3/2]">
+                    {% include "components/_carousel.html" %}
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+
         <!-- TESTIMONIALS -->
         <div class="mycontainer mt-24" id="testimonials">
 
@@ -253,71 +320,6 @@
 
         </div> <!-- Testimonials -->
 
-
-        <!--  -->
-        <div class="flex w-full px-4 lg:px-0 mt-24" id="case-studies">
-            <div class="side-bar">
-                <span class="font-semibold text-lg"> 1—5 </span>
-            </div>
-            <div class="flex-1">
-                <h2 class="text-5xl font-medium mb-12 gradient-text">Case Studies</h2>
-                <div class="w-full bg-black lg:max-w-[80ch] aspect-[3/2]">
-                    {% include "components/_carousel.html" %}
-                </div>
-            </div>
-        </div>
-
-        <!--  -->
-        
-        <div class="flex mt-24 px-4 lg:px-0" id="why-us">
-            <div class="side-bar ">
-                <i class="fa-solid fa-star-of-life"></i>
-            </div>
-            <div class="flex-1">
-                <h2 class="text-5xl font-medium mb-12 gradient-text">Our Qualities</h2>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-3 mt-8 gap-5 lg:pr-8">
-                    <!-- diamond -->
-                    <div class="box">
-                        <img src="{% static "images/diamond-dark-mode--unscreen.gif" %}" alt="">
-                        <div>
-                            <h2 class="text-2xl">Top-notch quality</h2>
-                        </div>
-                        <div>
-                            <p>
-                                We use only high-grade materials for our epoxy floors, ensuring exceptional durability and strength, so your investment lasts for many years.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="{% static "images/clock-ldark-mode-unscreen.gif" %}" alt="">
-                        <div>
-                            <h2 class="text-2xl">Quick Installation</h2>
-                        </div>
-                        <div>
-                            <p>
-                                We understand the value of your time. Our streamlined process allows us to complete the installation of your epoxy floors in just one day, minimizing any disruption.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="{% static "images/saving-dark-mode--unscreen.gif" %}" alt="">
-                        <div>
-                            <h2 class="text-2xl">Free Estimates</h2>
-                        </div>
-                        <div>
-                            <p>
-                                We offer free consultations and estimates for all our services, giving you the chance to plan your project with no obligations and complete transparency.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {% comment %} <div class="lg:max-w-[80ch]">
-                    {% include "components/_faq.html" %}
-                </div> {% endcomment %}
-            </div>
-        </div>
 
         <!--  -->
 
