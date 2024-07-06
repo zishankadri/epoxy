@@ -21,8 +21,13 @@
 
 {% block main %}
 
-    <div class="max-w-[1600px] m-auto">
+    <div class="max-w-[1600px] m-auto overflow-hidden">
         <div class="relative flex justify-center items-center pt-24 pb-8 lg:h-[400px] overflow-hidden ">
+            <img src="{% static "images/metallic-epoxy.png" %}" alt=""
+                class="absolute max-w-[30%] aspect-square z-[4] -top-0 -left-32 -rotate-45 opacity-70 translate-y-[-45%] rounded-3xl">
+            <img src="{% static "images/blue-epoxy.png" %}" alt="" 
+                class="absolute max-w-[30%] aspect-[4/3] -bottom-24 -right-32 -rotate-45 z-[4] opacity-80 rounded-3xl">
+                
             <div 
                 class="fixed w-[20%] aspect-square bg-purple-400/40 top-0 left-0 translate-x-[-20%] translate-y-[-20%] blur-3xl rounded-full -z-10">
             </div>
@@ -271,7 +276,7 @@
             <div class="flex-1">
                 <h2 class="text-5xl font-medium mb-12 gradient-text">Our Qualities</h2>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-3 mt-8 gap-5 pr-8">
+                <div class="grid grid-cols-1 sm:grid-cols-3 mt-8 gap-5 lg:pr-8">
                     <!-- diamond -->
                     <div class="box">
                         <img src="{% static "images/diamond-dark-mode--unscreen.gif" %}" alt="">
