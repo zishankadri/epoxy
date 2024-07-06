@@ -1,0 +1,65 @@
+{% extends "_base.html" %}
+
+{% load static %}
+
+
+{% block head %} 
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="./src/output.css">
+
+    <!-- Font Awesome -->
+    <link href="./fontawsome/css/fontawesome.css" rel="stylesheet">
+    <link href="./fontawsome/css/brands.css" rel="stylesheet">
+    <link href="./fontawsome/css/solid.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    {% endblock head %}
+
+
+{% block main %}
+    <div 
+        class="fixed w-[20%] aspect-square bg-purple-400/40 top-0 left-0 translate-x-[-20%] translate-y-[-20%] blur-3xl rounded-full -z-10">
+    </div>
+    <div 
+        class="fixed w-[20%] aspect-square bg-orange-400/40 bottom-0 right-0 translate-y-[20%] blur-3xl rounded-full -z-10">
+    </div>
+
+    <div class="flex flex-col justify-center items-center">
+
+        <h1 class="my-12">
+            <span class="relative -z-10 text-8xl font-medium gradient-text">
+                    Gallery
+            </span>
+        </h1>
+        <div 
+        class="home-container grid grid-cols-1 lg:grid-cols-3 gap-8 py-8 [&_img]:shadow-xl [&_img]:border-t-2 [&_img]:border-gray-200 [&_img]:shadow-black/70 [&_img]:rounded-2xl [&_img]:mb-8">
+            <div>
+                <img src="{% static "./images/portfolio/image1.jpeg" %}" alt="" class="object-cover">
+                <img src="{% static "./images/portfolio/image2.jpeg" %}" alt="" class="object-cover">
+                <img src="{% static "./images/portfolio/image3.jpeg" %}" alt="" class="object-cover">
+            </div>
+            <div>
+                <img src="{% static "./images/portfolio/image4.jpeg" %}" alt="" class="object-cover">
+                <img src="{% static "./images/portfolio/image5.jpeg" %}" alt="" class="object-cover">
+                <img src="{% static "./images/portfolio/image6.jpeg" %}" alt="" class="object-cover">
+            </div>
+            <div>
+                <img src="{% static "./images/portfolio/image7.jpeg" %}" alt="" class="object-cover">
+                <img src="{% static "./images/portfolio/image8.jpeg" %}" alt="" class="object-cover">
+                <img src="{% static "./images/portfolio/image9.jpeg" %}" alt="" class="object-cover">
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock main %}

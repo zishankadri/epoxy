@@ -1,0 +1,105 @@
+{% extends "_base.html" %}
+
+{% load static %}
+
+{% block head %} 
+    <title>Paintingo</title>
+    <!-- Font Awesome -->
+    <link href="./fontawsome/css/fontawesome.css" rel="stylesheet">
+    <link href="./fontawsome/css/brands.css" rel="stylesheet">
+    <link href="./fontawsome/css/solid.css" rel="stylesheet">
+
+    <!-- Include Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="{% static "./leaflet/leaflet.css" %}" />
+    <script src="{% static "./leaflet/leaflet.js" %}"></script>
+        
+{% endblock head %}
+
+
+{% block main %}
+<!-- <body class="bg-custom bg-[#171625] text-white flex flex-col justify-center items-center font-poppins"> -->
+    <div 
+        class="fixed w-[20%] aspect-square bg-purple-400/40 top-0 left-0 translate-x-[-20%] translate-y-[-20%] blur-3xl rounded-full -z-10">
+    </div>
+    <div 
+        class="fixed w-[20%] aspect-square bg-orange-400/40 bottom-0 right-0 translate-y-[20%] blur-3xl rounded-full -z-10">
+    </div>
+    <!-- Navigation Bar -->
+
+    <div class="group home-container group pt-12 w-full">
+        <!-- Title -->
+        <div class="w-full mb-4 sm:mb-8">
+        <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold text-slate-200">Contact</h1>
+            <p class="text-slate-200">If you have any questions or inquiries, feel free to reach out to us.</p>
+        </div>
+
+        <div class="flex flex-col justify-between items-center lg:items-start lg:flex-row gap-8">
+            <form method="post" class="gri flex flex-col gap-4 items-end sm:max-w-[40%] w-full">
+                {% csrf_token %}
+                <!-- Full name -->
+                <div class="w-full">
+                    <label for="full-name" class="block mb-2 text-sm font-medium text-gray-200">Full name</label>
+                    <input type="text" name="" id="" class="regular-input">
+                </div>
+                <!-- Email -->
+                <div class="w-full">
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Email</label>
+                    <input type="text" name="" id="" class="regular-input">
+                </div>
+                <!-- Describe Brief -->
+                <div class="w-full">
+                    <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">What are you looking to get done?</label>
+                    <textarea name="" id="" class="regular-input !rounded-3xl"></textarea>                
+                </div>
+                
+                <button class="btn-primary self-end">Submit</button>
+                
+            </form>
+        
+            <div class="flex flex-col gap-6 w-full lg:w-[50%] lg:pl-5 lg:border-l border-gray-700">
+                <!-- Location -->
+                <div class="text-slate-200">
+                    <i class="fa-solid fa-location-dot"></i> <span class="font-semibold ml-2">Location</span>
+                </div>
+                <!-- MAP -->
+                <div id="map" class="rounded-lg h-80"></div>
+
+                <!-- Phone -->
+                <div class="text-slate-200">
+                    <i class="fa-solid fa-phone"></i> <span class="font-semibold ml-2">Phone no</span>
+                    <p>(555) 999-0000</p>
+                </div>
+                <!-- Email -->
+                <div class="text-slate-200">
+                    <i class="fa-solid fa-envelope"></i> <span class="font-semibold ml-2">Email</span>
+                    <p>info@gmail.com</p>
+                    <p>support@gmail.com</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>       
+            LatLng = [32.91315865863555, -97.24984141246158]
+
+            var map = L.map('map').setView([32.91315865863555, -97.24984141246158], 6);
+
+            var marker = L.marker(LatLng).addTo(map);
+            marker.bindPopup("Paintigo").openPopup();
+
+            map.fitBounds([marker.getLatLng()])
+            map.setView(map.getCenter(), 6);  // Center the map
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+        </script>
+
+    </div>
+  
+
+{% endblock main %}
+    
