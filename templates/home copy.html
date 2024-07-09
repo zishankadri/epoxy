@@ -1,0 +1,292 @@
+{% extends "_base.html" %}
+
+{% load static %}
+
+
+{% block head %} 
+    {% load static %}
+    <title>Home</title>
+
+    <!-- Font Awesome -->
+    <link href="./fontawsome/css/fontawesome.css" rel="stylesheet">
+    <link href="./fontawsome/css/brands.css" rel="stylesheet">
+    <link href="./fontawsome/css/solid.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet"/>
+    
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" /> -->
+    
+{% endblock head %}
+
+
+{% block main %}
+<style>
+nav { color: white; }
+</style>
+    <div class="max-w-[1600px] m-auto overflow-hidden">
+        <img src="{% static "images/background.jpg" %}" alt="" class="absolute max-w-[1600px] h-[650px] w-full brightness-50 -z-10 top-0 m-auto">
+
+        <div class="relative flex justify-center text-white items-center pt-24 pb-8 lg:h-[650px] overflow-hidden ">
+            <div 
+                class="fixed w-[20%] aspect-square bg-purple-400/40 top-0 left-0 translate-x-[-0%] translate-y-[-20%] blur-3xl rounded-full -z-20">
+            </div>
+            <div 
+                class="fixed w-[20%] aspect-square bg-orange-400/40 bottom-0 right-0 translate-y-[20%] blur-3xl rounded-full -z-20">
+            </div>
+
+            <div class="flex justify-between items-center home-container w-full">
+                <div class="flex flex-col gap-8">
+                    <h1 class="">
+                        <span class="text-6xl font-semibold">
+                            Elegant <br>
+                            Epoxy <br>
+                            Flooring.
+                        </span>
+                    </h1>
+                    <div class="fixed-size">
+                        <p class="text-white text-lg text-center w-[30ch] max-w-[30ch] lg:w-[50ch] lg:max-w-[50ch]" id="typing-effect">
+                            Durable, Stylish, and Customizable Solutions for Every Surface
+                        </p>
+                    </div>
+
+                    <!-- <div class="relative flex gap-8 pt-4"> -->
+                        <!-- <a href="/contact/"  -->
+                            <!-- class="btn-home !text-base border-t w-full !border-white/50"> -->
+                            <!-- Contact -->
+                        <!-- </a> -->
+                        <!-- <img src="{% static "./images/arrow.png" %}" alt="" class="absolute top-8 right-0 translate-x-32 sm:translate-x-40 translate-y-8 rotate-12 scale-125"> -->
+                    <!-- </div> -->
+                </div>
+
+                <form method="post" class="gri flex flex-col gap-4 items-end sm:max-w-[40%] w-full bg-white/10 p-8 rounded-xl">
+                    {% csrf_token %}
+                    <!-- Full name -->
+                    <div class="w-full">
+                        <label for="full-name" class="block mb-2 text-sm font-medium text-gray-200">Full name</label>
+                        <input type="text" name="" id="" class="regular-input">
+                    </div>
+                    <!-- Email -->
+                    <div class="w-full">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Email</label>
+                        <input type="text" name="" id="" class="regular-input">
+                    </div>
+                    <div class="w-full">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Email</label>
+                        <input type="text" name="" id="" class="regular-input">
+                    </div>
+                    <!-- Describe Brief -->
+                    <div class="w-full">
+                        <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">What are you looking to get done?</label>
+                        <textarea name="" id="" class="regular-input !rounded-3xl"></textarea>                
+                    </div>
+                    
+                    <button class="btn-primary self-end">Submit</button>
+                    
+                </form>
+            </div>
+
+            <div class="wave">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </div>
+
+        
+        <div class="flex px-4 lg:px-0 bg-red-700 py-8 text-white" id="why-us">
+
+            <div class="side-bar ">
+                <i class="fa-solid fa-star-of-life"></i>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-5xl font-medium mb-12">Why Chose Us?</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 mt-8 gap-5 lg:pr-8">
+                    <!-- diamond -->
+                    <div class="box">
+                        <img src="{% static "images/diamond-dark-mode--unscreen.gif" %}" alt="">
+                        <div>
+                            <h2 class="text-2xl">Top-notch quality</h2>
+                        </div>
+                        <div>
+                            <p>
+                                We use only high-grade materials for our epoxy floors, ensuring exceptional durability and strength, so your investment lasts for many years.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="{% static "images/clock-ldark-mode-unscreen.gif" %}" alt="">
+                        <div>
+                            <h2 class="text-2xl">Quick Installation</h2>
+                        </div>
+                        <div>
+                            <p>
+                                We understand the value of your time. Our streamlined process allows us to complete the installation of your epoxy floors in just one day, minimizing any disruption.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="{% static "images/saving-dark-mode--unscreen.gif" %}" alt="">
+                        <div>
+                            <h2 class="text-2xl">Free Estimates</h2>
+                        </div>
+                        <div>
+                            <p>
+                                We offer free consultations and estimates for all our services, giving you the chance to plan your project with no obligations and complete transparency.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {% comment %} <div class="lg:max-w-[80ch]">
+                    {% include "components/_faq.html" %}
+                </div> {% endcomment %}
+            </div>
+        </div>
+
+
+        <!--  -->
+        <div class="flex w-full px-4 lg:px-0 mt-24" id="case-studies">
+            <div class="side-bar">
+                <span class="font-semibold text-lg"> 1—5 </span>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-5xl font-medium mb-12 gradient-text">Case Studies</h2>
+                <div class="w-full bg-black lg:max-w-[80ch] aspect-[3/2]">
+                    {% include "components/_carousel.html" %}
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+        {% include "components/_testimonials.html" %}
+        <!--  -->
+
+        <div class="flex mt-24 px-4 lg:px-0 justify-center" id="why-us">
+            <div class="side-bar">
+                <i class="fa-solid fa-palette"></i>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-5xl font-medium mb-12 gradient-text">Colors</h2>
+                <div class="lg:max-w-[80ch] flex justify-center flex-wrap gap-8 py-8">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black">
+                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black">
+                </div>
+            </div>
+        </div>
+    </div> <!-- Main -->
+
+
+
+<script>
+
+    const faqs = document.getElementsByClassName("question");
+    
+    for (let i = 0; i < faqs.length; i++) { 
+        const question = faqs[i];
+    
+        let arrow = question.querySelector('.arrow')
+        let topBar = question.querySelector('.top-bar')
+        let p = question.querySelector('p')
+    
+        function toggle(event) {
+            if (p.style.display == "block") {  
+                p.style.display = "none";
+                arrow.style.transform = "rotate(0deg)";
+                topBar.style.padding = "0";
+            } 
+            else { 
+                p.style.display = "block"; 
+                arrow.style.transform = "rotate(-180deg)";
+                topBar.style.padding = "0 0 1rem 0";
+    
+            }
+        }
+        
+        // btn.addEventListener('click', toggle);
+        question.addEventListener('click', toggle);
+    }
+    
+    
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const chordList = document.querySelectorAll(".card");
+        const chordDisplay = document.getElementById('chordDisplay');
+        const removeIcon = document.querySelector('.remove-icon');
+    
+        let currentChordIndex = 0;
+        let totalWidth = 0;
+    
+        console.log(chordList);
+        
+        gsap.defaults({
+            // ease: "",
+            duration: 0.35,
+        });
+        gsap.to(chordList[0], { scale: 1.3, zIndex: 10 });
+        
+        function updateChordDisplay(index) {
+            const currentChord = chordList[index];
+            const originalScale = 1;
+            
+            if (currentChord) {
+                totalWidth = 0;
+                for (let i = 0; i < index; i++) {
+                    totalWidth += chordList[i].offsetWidth + 112; // px
+                }
+                
+                // Instantly set the box size
+                gsap.to(chordList, { scale: originalScale, zIndex: 1 });
+                
+                // gsap.to(currentChord, { scale: 1.3 });
+                gsap.to(currentChord, { scale: 1.3, zIndex: 10 });
+    
+                // Move the box
+                gsap.to(chordDisplay, { x: -totalWidth });
+            }
+        }
+    
+        const backButton = document.getElementById('back');
+        const nextButton = document.getElementById('next');
+    
+        nextButton.addEventListener('click', function () {
+            // currentChordIndex++;
+            currentChordIndex = (currentChordIndex + 1) % chordList.length;
+            updateChordDisplay(currentChordIndex);
+        })
+        backButton.addEventListener('click', function () {
+            // currentChordIndex--;
+            currentChordIndex = (currentChordIndex - 1 + chordList.length) % chordList.length;
+            updateChordDisplay(currentChordIndex);
+        })
+    
+        // Add click event listeners to each chord box
+        chordList.forEach((chordElement, index) => {
+            chordElement.addEventListener('click', () => {
+                const chordStartTime = chords[index][0];
+                audio.currentTime = chordStartTime;
+            });
+        });
+            
+    });
+</script>
+    
+<!-- Flowbite-->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> -->
+
+
+{% endblock main %}

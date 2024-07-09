@@ -26,11 +26,11 @@
     </div>
     <!-- Navigation Bar -->
 
-    <div class="group home-container group pt-12 w-full">
+    <div class="group home-container group pt-12 w-full mt-24">
         <!-- Title -->
         <div class="w-full mb-4 sm:mb-8">
-        <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold text-slate-200">Contact</h1>
-            <p class="text-slate-200">If you have any questions or inquiries, feel free to reach out to us.</p>
+            <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold text-slate-700">Contact</h1>
+            <p class="text-slate-700">If you have any questions or inquiries, feel free to reach out to us.</p>
         </div>
 
         <div class="flex flex-col justify-between items-center lg:items-start lg:flex-row gap-8">
@@ -38,17 +38,17 @@
                 {% csrf_token %}
                 <!-- Full name -->
                 <div class="w-full">
-                    <label for="full-name" class="block mb-2 text-sm font-medium text-gray-200">Full name</label>
+                    <label for="full-name" class="block mb-2 text-sm font-medium text-gray-700">Full name</label>
                     <input type="text" name="" id="" class="regular-input">
                 </div>
                 <!-- Email -->
                 <div class="w-full">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Email</label>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Email</label>
                     <input type="text" name="" id="" class="regular-input">
                 </div>
                 <!-- Describe Brief -->
                 <div class="w-full">
-                    <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">What are you looking to get done?</label>
+                    <label for="brief" class="block mb-2 text-sm font-medium text-gray-700">What are you looking to get done?</label>
                     <textarea name="" id="" class="regular-input !rounded-3xl"></textarea>                
                 </div>
                 
@@ -56,21 +56,21 @@
                 
             </form>
         
-            <div class="flex flex-col gap-6 w-full lg:w-[50%] lg:pl-5 lg:border-l border-gray-700">
+            <div class="flex flex-col gap-6 w-full lg:w-[50%] lg:pl-5 lg:border-l border-gray-400">
                 <!-- Location -->
-                <div class="text-slate-200">
+                <div class="text-slate-700">
                     <i class="fa-solid fa-location-dot"></i> <span class="font-semibold ml-2">Location</span>
                 </div>
                 <!-- MAP -->
                 <div id="map" class="rounded-lg h-80"></div>
 
                 <!-- Phone -->
-                <div class="text-slate-200">
+                <div class="text-slate-700">
                     <i class="fa-solid fa-phone"></i> <span class="font-semibold ml-2">Phone no</span>
                     <p>(555) 999-0000</p>
                 </div>
                 <!-- Email -->
-                <div class="text-slate-200">
+                <div class="text-slate-700">
                     <i class="fa-solid fa-envelope"></i> <span class="font-semibold ml-2">Email</span>
                     <p>info@gmail.com</p>
                     <p>support@gmail.com</p>

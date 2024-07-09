@@ -8,3 +8,6 @@ def contact(request):
 
 def gallery(request):
     return render(request, "gallery.html")
+
+def about_us(request):
+    return render(request, "about_us.html")

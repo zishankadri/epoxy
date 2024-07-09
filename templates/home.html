@@ -14,57 +14,92 @@
 
     <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet"/>
     
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" /> -->
     
 {% endblock head %}
 
 
 {% block main %}
-
+<style>
+nav { color: white; }
+</style>
     <div class="max-w-[1600px] m-auto overflow-hidden">
-        <div class="relative flex justify-center items-center pt-24 pb-8 lg:h-[400px] overflow-hidden ">
-            <img src="{% static "images/metallic-epoxy.png" %}" alt=""
-                class="absolute max-w-[30%] aspect-square z-[4] -top-0 -left-32 -rotate-45 opacity-70 translate-y-[-45%] rounded-3xl">
-            <img src="{% static "images/blue-epoxy.png" %}" alt="" 
-                class="absolute max-w-[30%] aspect-[4/3] -bottom-24 -right-32 -rotate-45 z-[4] opacity-80 rounded-3xl">
-                
-            <div 
-                class="fixed w-[20%] aspect-square bg-purple-400/40 top-0 left-0 translate-x-[-20%] translate-y-[-20%] blur-3xl rounded-full -z-10">
-            </div>
-            <div 
-                class="fixed w-[20%] aspect-square bg-orange-400/40 bottom-0 right-0 translate-y-[20%] blur-3xl rounded-full -z-10">
-            </div>
-            <div class="flex flex-col gap-8 items-center">
-                <h1 class="text-center">
-                    <span class="text-6xl gradient-text">
-                        Elegant
-                        Epoxy
-                        Flooring.
-                    </span>
-                </h1>
-                <div class="fixed-size">
-                    <p class="text-gray-400 text-lg text-center w-[30ch] max-w-[30ch] lg:w-[50ch] lg:max-w-[50ch]" id="typing-effect">
-                        Durable, Stylish, and Customizable Solutions for Every Surface
-                    </p>
+        <img src="{% static "images/background.jpg" %}" alt="" class="absolute max-w-[1600px] h-[1050px] lg:h-[650px] w-full brightness-50 -z-10 top-0 m-auto object-cover">
+        <div 
+            class="fixed w-[20%] aspect-square bg-purple-400/40 top-0 left-0 translate-x-[-0%] translate-y-[-20%] blur-3xl rounded-full -z-20">
+        </div>
+        <div 
+            class="fixed w-[20%] aspect-square bg-orange-400/40 bottom-0 right-0 translate-y-[20%] blur-3xl rounded-full -z-20">
+        </div>
+        
+        <div class="relative flex text-white items-center pt-24 pb-8 h-[1050px] lg:h-[650px] overflow-hidden">
+            <div class="flex justify-between flex-col sm:flex-row lg:items-center home-container w-full gap-8">
+                <div class="relative flex flex-col gap-8">
+                    <h1 class="">
+                        <span class="text-6xl font-semibold">
+                            Elegant <br>
+                            Epoxy <br>
+                            Flooring.
+                        </span>
+                    </h1>
+                    <div class="fixed-size">
+                        <p class="text-gray-200 text-lg w-[30ch] max-w-[30ch] lg:w-[50ch] lg:max-w-[50ch]" id="typing-effect">
+                            Durable, Stylish, and Customizable Solutions for Every Surface
+                        </p>
+                    </div>
+
+                    <!-- <div class="relative flex gap-8 pt-4"> -->
+                        <!-- <a href="/contact/"  -->
+                            <!-- class="btn-home !text-base border-t w-full !border-white/50"> -->
+                            <!-- Contact -->
+                        <!-- </a> -->
+                        <!-- <img src="{% static "./images/arrow.png" %}" alt="" class="absolute top-8 right-0 translate-x-32 sm:translate-x-40 translate-y-8 rotate-12 scale-125"> -->
+                    <!-- </div> -->
                 </div>
 
-                <div class="relative flex gap-8 pt-4">
-                    <a href="https://calendly.com/" 
-                        class="btn-home !text-base border-t w-full !border-white/50">
-                        Book A Call
-                    </a>
-                    <img src="{% static "./images/arrow.png" %}" alt="" class="absolute top-8 right-0 translate-x-32 sm:translate-x-40 translate-y-8 rotate-12 h-8 ">
-                </div>
+                <form method="post" class="group flex flex-col gap-4 items-start sm:max-w-[40%] w-full bg-white/10 p-8 rounded-xl">
+                    {% csrf_token %}
+                    <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold">Contact</h1>
+                    <!-- Full name -->
+                    <div class="w-full">
+                        <label for="full-name" class="block mb-2 text-sm font-medium text-gray-200">Full name</label>
+                        <input type="text" name="" id="" class="regular-input">
+                    </div>
+                    <!-- Email -->
+                    <div class="w-full">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Email</label>
+                        <input type="text" name="" id="" class="regular-input">
+                    </div>
+                    <div class="w-full">
+                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-200">Phone</label>
+                        <input type="text" name="" id="" class="regular-input">
+                    </div>
+                    <!-- Describe Brief -->
+                    <div class="w-full">
+                        <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">What are you looking to get done?</label>
+                        <textarea name="" id="" class="regular-input !rounded-3xl"></textarea>                
+                    </div>
+                    
+                    <button class="btn-primary self-end">Submit</button>
+                    
+                </form>
+            </div>
+
+            <div class="wave">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
             </div>
         </div>
 
         
-        <div class="flex mt-24 px-4 lg:px-0" id="why-us">
-            <div class="side-bar ">
+        <div class="flex px-4 lg:px-0 bg-red-700 py-8 text-white" id="why-us">
+
+            <div class="side-bar">
                 <i class="fa-solid fa-star-of-life"></i>
             </div>
             <div class="flex-1">
-                <h2 class="text-5xl font-medium mb-12 gradient-text">Our Qualities</h2>
+                <h2 class="text-5xl font-medium mb-12">Why Chose Us?</h2>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-3 mt-8 gap-5 lg:pr-8">
                     <!-- diamond -->
@@ -110,217 +145,36 @@
         </div>
 
 
-        <!--  -->
-        <div class="flex w-full px-4 lg:px-0 mt-24" id="case-studies">
-            <div class="side-bar">
-                <span class="font-semibold text-lg"> 1—5 </span>
-            </div>
-            <div class="flex-1">
-                <h2 class="text-5xl font-medium mb-12 gradient-text">Case Studies</h2>
-                <div class="w-full bg-black lg:max-w-[80ch] aspect-[3/2]">
-                    {% include "components/_carousel.html" %}
+        <div class="relative px-4 sm:px-12 py-16 pb-24 flex overflow-x-hidden overflow-y-visible w-full">
+            <div id="chordDisplay" class="flex items-center gap-28 w-[60%] max-w-[600px] m-auto bg-green-600">
+                <div class="card">
+                    <img src="{% static "images/portfolio/image1.jpeg" %}" alt="" class="w-full object-cover">
                 </div>
+                <div class="card">
+                    <img src="{% static "images/portfolio/image2.jpeg" %}" alt="" class="w-full object-cover">
+                </div>
+                <div class="card ">
+                    <img src="{% static "images/portfolio/image3.jpeg" %}" alt="" class="w-full object-cover">
+                </div>
+                <div class="card ">
+                    <img src="{% static "images/portfolio/image4.jpeg" %}" alt="" class="w-full object-cover">
+                </div>
+                <div class="card ">
+                    <img src="{% static "images/portfolio/image5.jpeg" %}" alt="" class="w-full object-cover">
+                </div>
+            </div>
+            <div class="absolute top-0 left-0 flex w-full h-full z-10  justify-between">
+                <button class="flex items-center justify-center rounded-xl w-[20%] lg:w-64" id="back"> 
+                    <i class="fa-solid fa-arrow-left-long text-xl text-white bg-black/50 p-4 rounded-full"></i>
+                </button>
+                <button class="flex items-center justify-center rounded-xl w-[20%] lg:w-64" id="next"> 
+                    <i class="fa-solid fa-arrow-right-long text-xl text-white bg-black/50 p-4 rounded-full"></i>
+                </button>
             </div>
         </div>
 
         <!--  -->
-
-        <!-- TESTIMONIALS -->
-        <div class="mycontainer mt-24" id="testimonials">
-
-            <h3 class="text-4xl mb-6 md:mb-8 text-center headings-weight text-dark-100 dark:text-grey-500">
-                What they say about us</h3>
-
-            <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet" />
-
-            <script type="module">
-                import KeenSlider from 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm'
-
-                const keenSlider = new KeenSlider(
-                    '#keen-slider',
-                    {
-                        loop: true,
-                        slides: {
-                            origin: 'center',
-                            perView: 1.25,
-                            spacing: 16,
-                        },
-                        breakpoints: {
-                            '(min-width: 1024px)': {
-                                slides: {
-                                    origin: 'auto',
-                                    perView: 1.5,
-                                    spacing: 32,
-                                },
-                            },
-                        },
-                    },
-                    []
-                )
-
-                const keenSliderPrevious = document.getElementById('keen-slider-previous')
-                const keenSliderNext = document.getElementById('keen-slider-next')
-
-                const keenSliderPreviousDesktop = document.getElementById(
-                    'keen-slider-previous-desktop'
-                )
-                const keenSliderNextDesktop = document.getElementById(
-                    'keen-slider-next-desktop'
-                )
-
-                keenSliderPrevious.addEventListener('click', () => keenSlider.prev())
-                keenSliderNext.addEventListener('click', () => keenSlider.next())
-
-                keenSliderPreviousDesktop.addEventListener('click', () => keenSlider.prev())
-                keenSliderNextDesktop.addEventListener('click', () => keenSlider.next())
-            </script>
-
-            <section class="rounded-xl text-white  ">
-                <div
-                    class="mx-auto max-w-[1340px] px-4 py-8 sm:px-6 lg:me-0 lg:py14 lg:pe-0 lg:ps-8 xl:py-22 overflow-hidden">
-                    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center lg:gap-16">
-
-                        <div class="-mx-6 lg:col-span-2 lg:mx-0">
-                            <div id="keen-slider" class="keen-slider">
-                                <!-- 1st testimonial -->
-                                <div class="keen-slider__slide">
-                                    <blockquote
-                                        class="flex h-full flex-col bg-white/10 justify-between p-6 shadow-sm sm:p-8 lg:p-12 rounded-lg">
-                                        <div>
-                                            <div class="flex gap-0.5 text-cyan-400">
-                                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                </svg>
-
-                                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                </svg>
-
-                                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                </svg>
-
-                                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                </svg>
-
-                                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                </svg>
-                                            </div>
-
-                                            <div class="mt-4">
-                                                <p class="text-2xl font-bold sm:text-3xl">
-                                                    A Centerpiece of Our Home
-                                                </p>
-
-                                                <p class="mt-4 leading-relaxed text-gray-400">
-                                                    Working with [Painter's Name] was an absolute delight.
-                                                    Their attention to detail and ability to bring our vision
-                                                    to life was incredible. The commissioned piece they created for our living room has become the centerpiece of our home. We couldn't be happier!
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <footer class="mt-4 text-sm font-medium text-gray-400 sm:mt-6">
-                                            &mdash; Aarav Sharma
-                                        </footer>
-                                    </blockquote>
-                                </div>
-
-                                <!-- 2nd testimonial -->
-                                <div class="keen-slider__slide">
-                                    <blockquote
-                                        class="flex h-full flex-col bg-white/10 justify-between p-6 shadow-sm sm:p-8 lg:p-12 rounded-lg">
-                                        <div>
-                                            <div class="flex gap-0.5 text-cyan-400">
-                                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                </svg>
-
-                                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                </svg>
-
-                                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                </svg>
-
-                                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                </svg>
-
-                                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                </svg>
-                                            </div>
-
-                                            <div class="mt-4">
-                                                <p class="text-2xl font-bold sm:text-3xl">
-                                                    A Designer's Dream
-                                                </p>
-
-                                                <p class="mt-4 leading-relaxed text-gray-400">
-                                                    As an interior designer, finding unique and captivating
-                                                    artwork is essential for my projects. [Painter's Name]'s
-                                                    work consistently exceeds my expectations and adds an unmatched level of sophistication to every space. They are truly a master of their craft.
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <footer class="mt-4 text-sm font-medium text-gray-400 sm:mt-6">
-                                            &mdash; Rohit Mehta
-                                        </footer>
-                                    </blockquote>
-                                </div>
-
-                            </div> <!-- Testimonial List -->
-                        </div>
-                    </div>
-
-                    <div class="mt-8 flex justify-center gap-4 lg:hidden">
-                        <button aria-label="Previous slide" id="keen-slider-previous"
-                            class="rounded-full border border-brand-light p-3 text-brand-light transition hover:bg-brand-light hover:text-white">
-                            <svg class="h-5 w-5 -rotate-180 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                            </svg>
-                        </button>
-
-                        <button aria-label="Next slide" id="keen-slider-next"
-                            class="rounded-full border border-brand-light p-3 text-brand-light transition hover:bg-brand-light hover:text-white">
-                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-        </div> <!-- Testimonials -->
-
-
+        {% include "components/_testimonials.html" %}
         <!--  -->
 
         <div class="flex mt-24 px-4 lg:px-0 justify-center" id="why-us">
@@ -329,17 +183,18 @@
             </div>
             <div class="flex-1">
                 <h2 class="text-5xl font-medium mb-12 gradient-text">Colors</h2>
-                <div class="lg:max-w-[80ch] flex justify-center flex-wrap gap-8">
-                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
-                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
-                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
-                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
-                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
-                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
-                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
-                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
-                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
-                    <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-2xl shadow-black">
+                <div class="lg:max-w-[80ch] flex justify-center flex-wrap gap-8 py-8">
+                    <img src="{% static "images/colors/color1.png" %}" alt="" class="w-28">
+                    <img src="{% static "images/colors/color2.png" %}" alt="" class="w-28">
+                    <img src="{% static "images/colors/color3.png" %}" alt="" class="w-28">
+                    <img src="{% static "images/colors/color4.png" %}" alt="" class="w-28">
+                    <img src="{% static "images/colors/color5.png" %}" alt="" class="w-28">
+                    <img src="{% static "images/colors/color6.png" %}" alt="" class="w-28">
+                    <img src="{% static "images/colors/color7.png" %}" alt="" class="w-28">
+                    <img src="{% static "images/colors/color8.png" %}" alt="" class="w-28">
+                    <img src="{% static "images/colors/color9.png" %}" alt="" class="w-28">
+                    <img src="{% static "images/colors/color10.png" %}" alt="" class="w-28">
+                    {% comment %} <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black"> {% endcomment %}
                 </div>
             </div>
         </div>
@@ -379,7 +234,6 @@
     
 </script>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 
 <script>
@@ -398,7 +252,7 @@
             // ease: "",
             duration: 0.35,
         });
-        gsap.to(chordList[0], { scale: 1.3, zIndex: 10 });
+        gsap.to(chordList[0], { scale: 1.1, zIndex: 10 });
         
         function updateChordDisplay(index) {
             const currentChord = chordList[index];
@@ -414,7 +268,7 @@
                 gsap.to(chordList, { scale: originalScale, zIndex: 1 });
                 
                 // gsap.to(currentChord, { scale: 1.3 });
-                gsap.to(currentChord, { scale: 1.3, zIndex: 10 });
+                gsap.to(currentChord, { scale: 1.1, zIndex: 10 });
     
                 // Move the box
                 gsap.to(chordDisplay, { x: -totalWidth });
@@ -447,7 +301,7 @@
 </script>
     
 <!-- Flowbite-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> -->
 
 
 {% endblock main %}
