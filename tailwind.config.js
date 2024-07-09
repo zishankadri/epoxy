@@ -19,6 +19,7 @@ module.exports = {
       'roboto': ['Roboto'],
       'handlee': ['Handlee'],
       'pangolin': ['Pangolin'],
+      'bebas': ['Bebas Neue'],
    }
   },
   plugins: [

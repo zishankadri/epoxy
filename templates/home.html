@@ -19,10 +19,16 @@
 {% endblock head %}
 
 
+
+{% block logo %}
+    <img src="{% static "./images/logo.png" %}" alt="Logo" class="w-24">
+{% endblock logo %}
+
 {% block main %}
-<style>
-nav { color: white; }
-</style>
+    <style>
+    nav { color: white; }
+    </style>
+
     <div class="max-w-[1600px] m-auto overflow-hidden">
         <img src="{% static "images/background.jpg" %}" alt="" class="absolute max-w-[1600px] h-[1050px] lg:h-[650px] w-full brightness-50 -z-10 top-0 m-auto object-cover">
         <div 
@@ -36,7 +42,7 @@ nav { color: white; }
             <div class="flex justify-between flex-col sm:flex-row lg:items-center home-container w-full gap-8">
                 <div class="relative flex flex-col gap-8">
                     <h1 class="">
-                        <span class="text-6xl font-semibold">
+                        <span class="text-6xl font-bebas">
                             Elegant <br>
                             Epoxy <br>
                             Flooring.
@@ -99,7 +105,7 @@ nav { color: white; }
                 <i class="fa-solid fa-star-of-life"></i>
             </div>
             <div class="flex-1">
-                <h2 class="text-5xl font-medium mb-12">Why Chose Us?</h2>
+                <h2 class="text-5xl font-medium mb-12 font-bebas">Why Chose Us?</h2>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-3 mt-8 gap-5 lg:pr-8">
                     <!-- diamond -->
@@ -182,7 +188,7 @@ nav { color: white; }
                 <i class="fa-solid fa-palette"></i>
             </div>
             <div class="flex-1">
-                <h2 class="text-5xl font-medium mb-12 gradient-text">Colors</h2>
+                <h2 class="text-5xl font-medium mb-12 gradient-text font-bebas">Colors</h2>
                 <div class="lg:max-w-[80ch] flex justify-center flex-wrap gap-8 py-8">
                     <img src="{% static "images/colors/color1.png" %}" alt="" class="w-28">
                     <img src="{% static "images/colors/color2.png" %}" alt="" class="w-28">
