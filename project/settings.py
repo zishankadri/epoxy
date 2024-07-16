@@ -15,6 +15,11 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 import os
 
 # Quick-start development settings - unsuitable for production
@@ -38,8 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'compressor',
+
+    'core',
     'accounts',
+
+    'compressor',
+	'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -146,6 +155,9 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = '/media/'
+
 # White-Noise
 STORAGES = {
     "staticfiles": {
@@ -158,3 +170,12 @@ STORAGES = {
         },
     },
 }
+
+
+
+# Cloudingary - Djanog integration
+cloudinary.config(
+	cloud_name = "dfuupz7rh",
+	api_key = "747535543642996",
+	api_secret = "b-CwIGz8S-VqALmYkuOZCM1XwGM",
+)

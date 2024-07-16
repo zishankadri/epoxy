@@ -90,12 +90,24 @@ input, .regular-input {
 }
 
 .card {
-    @apply min-w-full max-h-[100vh] relative overflow-hidden rounded-xl shadow-xl shadow-black/50;
+    @apply flex min-w-full min-h-[100vh] max-h-[100vh] relative overflow-hidden rounded-xl shadow-xl shadow-black/50;
 }
-.card img {
-    @apply overflow-hidden rounded-xl shadow-xl shadow-black/50
+.card img, .card video {
+    /* @apply min-h-40 min-w-40 */
+    @apply overflow-hidden min-h-full rounded-xl shadow-xl shadow-black/50
 }
-
+.videoInsert {
+    position: absolute; 
+    right: 0; 
+    bottom: 0;
+    min-width: 100px;
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    /* z-index: 100; */
+    background-size: cover;
+    overflow: hidden;
+}
 .gradient-text {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-500;
     /* @apply text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400; */
@@ -133,4 +145,15 @@ input, .regular-input {
 
 .wave .shape-fill {
     fill: #c81e1e;
+}
+
+
+.color-box {
+    @apply w-28 lg:w-44
+}
+.color-box img {
+    @apply aspect-[6/4] rounded-lg shadow-lg shadow-black/40 object-cover
+}
+.color-box span {
+    @apply text-sm text-gray-700
 }

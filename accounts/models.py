@@ -35,14 +35,6 @@ class UserAccountManager(BaseUserManager):
         return user
     
 class UserAccount(AbstractBaseUser):
-    CUSTOMER = 'CUSTOMER'
-    CARRIER = 'CARRIER'
-
-    USER_TYPE_CHOICES = (
-        (CUSTOMER, "Customer"),
-        (CARRIER, "Carrier"),
-    )
-
     # Auth
     email = models.EmailField(max_length=254, unique=True)
 

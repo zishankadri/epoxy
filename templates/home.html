@@ -1,7 +1,7 @@
 {% extends "_base.html" %}
 
 {% load static %}
-
+{% load custom_filters %}
 
 {% block head %} 
     {% load static %}
@@ -98,14 +98,14 @@
             </div>
         </div>
 
-        
+        <!-- Why Choose Us? -->
         <div class="flex px-4 lg:px-0 bg-red-700 py-8 text-white" id="why-us">
 
             <div class="side-bar">
                 <i class="fa-solid fa-star-of-life"></i>
             </div>
             <div class="flex-1">
-                <h2 class="text-5xl font-medium mb-12 font-bebas">Why Chose Us?</h2>
+                <h2 class="text-5xl font-medium mb-12 font-bebas">Why Choose Us?</h2>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-3 mt-8 gap-5 lg:pr-8">
                     <!-- diamond -->
@@ -150,24 +150,23 @@
             </div>
         </div>
 
-
+        <!-- Gallery -->
         <div class="relative px-4 sm:px-12 py-16 pb-24 flex overflow-x-hidden overflow-y-visible w-full">
-            <div id="chordDisplay" class="flex items-center gap-28 w-[60%] max-w-[600px] m-auto bg-green-600">
-                <div class="card">
-                    <img src="{% static "images/portfolio/image1.jpeg" %}" alt="" class="w-full object-cover">
-                </div>
-                <div class="card">
-                    <img src="{% static "images/portfolio/image2.jpeg" %}" alt="" class="w-full object-cover">
-                </div>
-                <div class="card ">
-                    <img src="{% static "images/portfolio/image3.jpeg" %}" alt="" class="w-full object-cover">
-                </div>
-                <div class="card ">
-                    <img src="{% static "images/portfolio/image4.jpeg" %}" alt="" class="w-full object-cover">
-                </div>
-                <div class="card ">
-                    <img src="{% static "images/portfolio/image5.jpeg" %}" alt="" class="w-full object-cover">
-                </div>
+            <div id="chordDisplay" class="flex items-center gap-28 w-[60%] max-w-[600px] m-auto">
+                {% for item in gallery_items %}
+                {% if item.file_type == "IMAGE" %}
+                    <div class="card">
+                        <img src="{{ item.content.url }}" alt="" class="w-full object-cover">
+                    </div>
+                {% elif item.file_type == "VIDEO" %}
+                    <div class="flex card min-w-40 min-h-40">
+                        <video width="100%" height="100%" autoplay muted loop>
+                            <source src="{{ item.content.url }}" type="video/{{ item.content.url|split_dot }}">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                {% endif %}
+                {% endfor %}
             </div>
             <div class="absolute top-0 left-0 flex w-full h-full z-10  justify-between">
                 <button class="flex items-center justify-center rounded-xl w-[20%] lg:w-64" id="back"> 
@@ -189,7 +188,16 @@
             </div>
             <div class="flex-1">
                 <h2 class="text-5xl font-medium mb-12 gradient-text font-bebas">Colors</h2>
-                <div class="lg:max-w-[80ch] flex justify-center flex-wrap gap-8 py-8">
+                <div class="lg:max-w-[1600px] flex justify-center lg:justify-start flex-wrap gap-8 lg:gap-12 py-8">
+                    {% for image in image_files %}
+                    <div class="color-box">
+                        <div>
+                            <img src="{{ static_url }}{{ image.url }}" alt="{{ image.main_name }}">
+                        </div>
+                        <span class="mt-4 pt-2 border-t border-gray-300 block">{{ image.main_name }}</span>
+                        <span>{{ image.code }}</span>
+                    </div>
+                    {% endfor %}
                     <img src="{% static "images/colors/color1.png" %}" alt="" class="w-28">
                     <img src="{% static "images/colors/color2.png" %}" alt="" class="w-28">
                     <img src="{% static "images/colors/color3.png" %}" alt="" class="w-28">
@@ -258,7 +266,7 @@
             // ease: "",
             duration: 0.35,
         });
-        gsap.to(chordList[0], { scale: 1.1, zIndex: 10 });
+        gsap.to(chordList[0], { scale: 1.1, zIndex: 15 });
         
         function updateChordDisplay(index) {
             const currentChord = chordList[index];
@@ -274,8 +282,8 @@
                 gsap.to(chordList, { scale: originalScale, zIndex: 1 });
                 
                 // gsap.to(currentChord, { scale: 1.3 });
-                gsap.to(currentChord, { scale: 1.1, zIndex: 10 });
-    
+                gsap.to(currentChord, { scale: 1.1, zIndex: 15 });
+
                 // Move the box
                 gsap.to(chordDisplay, { x: -totalWidth });
             }
@@ -304,10 +312,27 @@
         });
             
     });
-</script>
+</script> 
     
 <!-- Flowbite-->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> -->
 
 
 {% endblock main %}
+
+
+                {% comment %} 
+                <div class="flex card min-w-40 min-h-40">
+                    <video width="100%" height="100%" autoplay muted loop>
+                        <source src="{% static 'myvideo.webm' %}" type="video/webm">
+                        <source src="{% static 'movie.ogg' %}" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="card">
+                    <img src="{% static "images/portfolio/image1.jpeg" %}" alt="" class="w-full object-cover">
+                </div>
+                ...
+                <div class="card ">
+                    <img src="{% static "images/portfolio/image5.jpeg" %}" alt="" class="w-full object-cover">
+                </div> {% endcomment %}
