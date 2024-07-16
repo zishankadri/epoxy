@@ -1,6 +1,7 @@
 {% extends "_base.html" %}
 
 {% load static %}
+{% load custom_filters %}
 
 
 {% block head %} 
@@ -41,24 +42,41 @@
         </h1>
         <div 
         class="home-container grid grid-cols-1 lg:grid-cols-3 gap-8 py-8 [&_img]:shadow-xl [&_img]:border-t-2 [&_img]:border-gray-200 [&_img]:shadow-black/70 [&_img]:rounded-2xl [&_img]:mb-8">
-            <div>
-                <img src="{% static "./images/portfolio/image1.jpeg" %}" alt="" class="object-cover">
-                <img src="{% static "./images/portfolio/image2.jpeg" %}" alt="" class="object-cover">
-                <img src="{% static "./images/portfolio/image3.jpeg" %}" alt="" class="object-cover">
-            </div>
-            <div>
-                <img src="{% static "./images/portfolio/image4.jpeg" %}" alt="" class="object-cover">
-                <img src="{% static "./images/portfolio/image5.jpeg" %}" alt="" class="object-cover">
-                <img src="{% static "./images/portfolio/image6.jpeg" %}" alt="" class="object-cover">
-            </div>
-            <div>
-                <img src="{% static "./images/portfolio/image7.jpeg" %}" alt="" class="object-cover">
-                <img src="{% static "./images/portfolio/image8.jpeg" %}" alt="" class="object-cover">
-                <img src="{% static "./images/portfolio/image9.jpeg" %}" alt="" class="object-cover">
-            </div>
+
+            {% for item in gallery_items %}
+            {% if item.file_type == "IMAGE" %}
+                <img src="{{ item.content.url }}" alt="" class="object-cover">
+            {% elif item.file_type == "VIDEO" %}
+                <div class="flex h-full object-cover">
+                    <video width="100%" height="100%" autoplay muted loop>
+                        <source src="{{ item.content.url }}" type="video/{{ item.content.url|split_dot }}">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            {% endif %}
+            {% endfor %}
+
         </div>
 
     </div>
 
 
 {% endblock main %}
+
+
+
+{% comment %} <div>
+    <img src="{% static "./images/portfolio/image1.jpeg" %}" alt="" class="object-cover">
+    <img src="{% static "./images/portfolio/image2.jpeg" %}" alt="" class="object-cover">
+    <img src="{% static "./images/portfolio/image3.jpeg" %}" alt="" class="object-cover">
+</div>
+<div>
+    <img src="{% static "./images/portfolio/image4.jpeg" %}" alt="" class="object-cover">
+    <img src="{% static "./images/portfolio/image5.jpeg" %}" alt="" class="object-cover">
+    <img src="{% static "./images/portfolio/image6.jpeg" %}" alt="" class="object-cover">
+</div>
+<div>
+    <img src="{% static "./images/portfolio/image7.jpeg" %}" alt="" class="object-cover">
+    <img src="{% static "./images/portfolio/image8.jpeg" %}" alt="" class="object-cover">
+    <img src="{% static "./images/portfolio/image9.jpeg" %}" alt="" class="object-cover">
+</div> {% endcomment %}

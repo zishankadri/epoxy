@@ -6,7 +6,6 @@ import os
 
 
 def home(request): 
-
     static_dir = os.path.join(settings.BASE_DIR, 'static', 'images', 'colors')
     image_files = []
 
@@ -18,10 +17,8 @@ def home(request):
                 image_files.append({'main_name': main_name, 'code': code, 'url': filename})
             else:
                 main_name, code = name, ''
-                
 
-
-    gallery_items = GalleryItem.objects.all().order_by('rank')[0:5]
+    gallery_items = GalleryItem.objects.all().order_by('rank')[0:6]
     context = {
         'image_files': image_files,
         'static_url': settings.STATIC_URL + 'images/' + 'colors/',
@@ -34,7 +31,13 @@ def contact(request):
     return render(request, "contact.html")
 
 def gallery(request):
-    return render(request, "gallery.html")
+    gallery_items = GalleryItem.objects.all().order_by('rank')
+
+    context = {
+        'gallery_items': gallery_items,
+    }
+
+    return render(request, "gallery.html", context)
 
 def about_us(request):
     return render(request, "about_us.html")
