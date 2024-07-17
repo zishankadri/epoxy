@@ -1628,11 +1628,6 @@ input[type="number"]::-webkit-inner-spin-button,
   background-color: rgb(255 255 255 / 0.3);
 }
 
-.bg-red-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(224 36 36 / var(--tw-bg-opacity));
-}
-
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1733,6 +1728,10 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
 }
 
 .text-center {
@@ -1910,6 +1909,10 @@ input[type="number"]::-webkit-inner-spin-button,
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-white\/70 {
+  color: rgb(255 255 255 / 0.7);
 }
 
 .underline {
@@ -2331,7 +2334,6 @@ input:focus, .regular-input:focus {
   position: relative;
   display: flex;
   max-height: 100vh;
-  min-height: 100vh;
   min-width: 100%;
   overflow: hidden;
   border-radius: 0.75rem;

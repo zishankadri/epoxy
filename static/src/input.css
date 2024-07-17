@@ -90,7 +90,7 @@ input, .regular-input {
 }
 
 .card {
-    @apply flex min-w-full min-h-[100vh] max-h-[100vh] relative overflow-hidden rounded-xl shadow-xl shadow-black/50;
+    @apply flex min-w-full max-h-[100vh] relative overflow-hidden rounded-xl shadow-xl shadow-black/50;
 }
 .card img, .card video {
     /* @apply min-h-40 min-w-40 */
