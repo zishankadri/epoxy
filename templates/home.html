@@ -155,27 +155,26 @@
             <div id="chordDisplay" class="flex items-center gap-28 w-[60%] max-w-[600px] m-auto">
                 {% for item in gallery_items %}
                 {% if item.file_type == "IMAGE" %}
-                    <div class="card">
+                    <a href="{{ item.content.url }}" class="card z-20">
                         <img src="{{ item.content.url }}" alt="" class="w-full object-cover">
-                    </div>
+                    </a>
                 {% elif item.file_type == "VIDEO" %}
-                    <div class="flex card min-w-40 min-h-40">
+                    <a href="{{ item.content.url }}" class="flex card min-w-40 min-h-40 z-20">
                         <video width="100%" height="100%" autoplay muted loop>
                             <source src="{{ item.content.url }}" type="video/{{ item.content.url|split_dot }}">
                             Your browser does not support the video tag.
                         </video>
-                    </div>
+                    </a>
                 {% endif %}
                 {% endfor %}
             </div>
-            <div class="absolute top-0 left-0 flex w-full h-full z-10  justify-between">
-                <button class="flex items-center justify-center rounded-xl w-[20%] lg:w-64" id="back"> 
-                    <i class="fa-solid fa-arrow-left-long text-xl text-white bg-black/50 p-4 rounded-full"></i>
-                </button>
-                <button class="flex items-center justify-center rounded-xl w-[20%] lg:w-64" id="next"> 
-                    <i class="fa-solid fa-arrow-right-long text-xl text-white bg-black/50 p-4 rounded-full"></i>
-                </button>
-            </div>
+            <button 
+            class="absolute top-0 left-0 h-full flex items-center justify-center rounded-xl w-[20%] lg:w-64 !z-40" id="back"> 
+                <i class="fa-solid fa-arrow-left-long text-xl text-white bg-black/50 p-4 rounded-full"></i>
+            </button>
+            <button class="absolute top-0 right-0 h-full flex items-center justify-center rounded-xl w-[20%] lg:w-64 z-40" id="next"> 
+                <i class="fa-solid fa-arrow-right-long text-xl text-white bg-black/50 p-4 rounded-full"></i>
+            </button>
         </div>
 
         <!--  -->
@@ -198,17 +197,6 @@
                         <span>{{ image.code }}</span>
                     </div>
                     {% endfor %}
-                    <img src="{% static "images/colors/color1.png" %}" alt="" class="w-28">
-                    <img src="{% static "images/colors/color2.png" %}" alt="" class="w-28">
-                    <img src="{% static "images/colors/color3.png" %}" alt="" class="w-28">
-                    <img src="{% static "images/colors/color4.png" %}" alt="" class="w-28">
-                    <img src="{% static "images/colors/color5.png" %}" alt="" class="w-28">
-                    <img src="{% static "images/colors/color6.png" %}" alt="" class="w-28">
-                    <img src="{% static "images/colors/color7.png" %}" alt="" class="w-28">
-                    <img src="{% static "images/colors/color8.png" %}" alt="" class="w-28">
-                    <img src="{% static "images/colors/color9.png" %}" alt="" class="w-28">
-                    <img src="{% static "images/colors/color10.png" %}" alt="" class="w-28">
-                    {% comment %} <img src="{% static "images/tile.png" %}" alt="" class="w-28 aspect-[5/3] rounded-xl object-cover shadow-xl shadow-black"> {% endcomment %}
                 </div>
             </div>
         </div>
@@ -266,34 +254,34 @@
             // ease: "",
             duration: 0.35,
         });
-        gsap.to(chordList[0], { scale: 1.1, zIndex: 15 });
+        // gsap.to(chordList[0], { scale: 1.1, zIndex: 15 });
+        gsap.to(chordList[0], { scale: 1.1});
         
         function updateChordDisplay(index) {
             const currentChord = chordList[index];
             const originalScale = 1;
-            
-            if (currentChord) {
-                totalWidth = 0;
-                for (let i = 0; i < index; i++) {
-                    totalWidth += chordList[i].offsetWidth + 112; // px
-                }
-                
-                // Instantly set the box size
-                gsap.to(chordList, { scale: originalScale, zIndex: 1 });
-                
-                // gsap.to(currentChord, { scale: 1.3 });
-                gsap.to(currentChord, { scale: 1.1, zIndex: 15 });
-
-                // Move the box
-                gsap.to(chordDisplay, { x: -totalWidth });
+        
+            totalWidth = 0;
+            for (let i = 0; i < index; i++) {
+                totalWidth += chordList[i].offsetWidth + 112; // px
             }
+            
+            // Instantly set the box size
+            // gsap.to(chordList, { scale: originalScale, zIndex: 10 });
+            
+            // gsap.to(currentChord, { scale: 1.3 });
+            // gsap.to(currentChord, { scale: 1.1, zIndex: 15 });
+            // gsap.to(currentChord, { zIndex: 15 });
+
+            // Move the box
+            gsap.to(chordDisplay, { x: -totalWidth });
         }
     
         const backButton = document.getElementById('back');
         const nextButton = document.getElementById('next');
     
         nextButton.addEventListener('click', function () {
-            // currentChordIndex++;
+            // currentChordIndex++;  
             currentChordIndex = (currentChordIndex + 1) % chordList.length;
             updateChordDisplay(currentChordIndex);
         })
@@ -304,35 +292,15 @@
         })
     
         // Add click event listeners to each chord box
-        chordList.forEach((chordElement, index) => {
-            chordElement.addEventListener('click', () => {
-                const chordStartTime = chords[index][0];
-                audio.currentTime = chordStartTime;
-            });
-        });
+        // chordList.forEach((chordElement, index) => {
+        //     chordElement.addEventListener('click', () => {
+        //         const chordStartTime = chords[index][0];
+        //         audio.currentTime = chordStartTime;
+        //     });
+        // });
             
     });
 </script> 
     
-<!-- Flowbite-->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> -->
-
 
 {% endblock main %}
-
-
-                {% comment %} 
-                <div class="flex card min-w-40 min-h-40">
-                    <video width="100%" height="100%" autoplay muted loop>
-                        <source src="{% static 'myvideo.webm' %}" type="video/webm">
-                        <source src="{% static 'movie.ogg' %}" type="video/ogg">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="card">
-                    <img src="{% static "images/portfolio/image1.jpeg" %}" alt="" class="w-full object-cover">
-                </div>
-                ...
-                <div class="card ">
-                    <img src="{% static "images/portfolio/image5.jpeg" %}" alt="" class="w-full object-cover">
-                </div> {% endcomment %}
