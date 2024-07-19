@@ -993,6 +993,10 @@ input[type="number"]::-webkit-inner-spin-button,
   top: 2rem;
 }
 
+.\!z-40 {
+  z-index: 40 !important;
+}
+
 .-z-10 {
   z-index: -10;
 }
@@ -1015,10 +1019,6 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .z-40 {
   z-index: 40;
-}
-
-.\!z-40 {
-  z-index: 40 !important;
 }
 
 .m-auto {
@@ -1632,19 +1632,6 @@ input[type="number"]::-webkit-inner-spin-button,
   background-color: rgb(255 255 255 / 0.3);
 }
 
-.bg-blue-500\/10 {
-  background-color: rgb(63 131 248 / 0.1);
-}
-
-.bg-blue-500\/5 {
-  background-color: rgb(63 131 248 / 0.05);
-}
-
-.bg-red-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(224 36 36 / var(--tw-bg-opacity));
-}
-
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1979,20 +1966,9 @@ input[type="number"]::-webkit-inner-spin-button,
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.blur-2xl {
-  --tw-blur: blur(40px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 .brightness-50 {
   --tw-brightness: brightness(.5);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.backdrop-blur-3xl {
-  --tw-backdrop-blur: blur(64px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
 .transition {
@@ -2845,11 +2821,6 @@ input:focus, .regular-input:focus {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.\[\&_img\]\:shadow-black\/70 img {
-  --tw-shadow-color: rgb(0 0 0 / 0.7);
-  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .\[\&_img\]\:shadow-black\/40 img {
