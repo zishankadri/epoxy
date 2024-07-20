@@ -27,8 +27,10 @@ def home(request):
 
     return render(request, "home.html", context)
 
+
 def contact(request):
     return render(request, "contact.html")
+
 
 def gallery(request):
     gallery_items = GalleryItem.objects.all().order_by('rank')
@@ -39,5 +41,22 @@ def gallery(request):
 
     return render(request, "gallery.html", context)
 
+
 def about_us(request):
     return render(request, "about_us.html")
+
+
+def check_media(request, item_id, origin):
+    item = GalleryItem.objects.get(id=item_id)
+
+    if origin == "home":
+        origin = "/#gallery"
+    elif origin == "gallery":
+        origin = "/gallery/"
+
+    context = {
+        "item": item,
+        "origin": origin
+    }
+    
+    return render(request, "check_media.html", context)

@@ -1,0 +1,51 @@
+{% load compress %}
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Paintingo</title>
+    <!-- Font Awesome -->
+    <link href="./fontawsome/css/fontawesome.css" rel="stylesheet">
+    <link href="./fontawsome/css/brands.css" rel="stylesheet">
+    <link href="./fontawsome/css/solid.css" rel="stylesheet">
+
+    <!-- Include Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="{% static "./leaflet/leaflet.css" %}" />
+    <script src="{% static "./leaflet/leaflet.js" %}"></script>
+        
+    <!-- Tailwind CSS -->
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+</head>
+<body>
+
+
+<div class="flex items-start justify-center">
+
+    <div class="relative flex justify-center items-center min-h-[100vh] max-h-[100vh]">
+        <a href="{{ origin }}" class="btn-primary absolute top-4 left-0 z-40">Back</a>
+        {% if item.file_type == "IMAGE" %}
+        <div href="{{ item.content.url }}" class="z-20">
+            <img src="{{ item.content.url }}" alt="" class="w-full object-cover max-h-[100vh] py-4">
+        </div>
+        {% elif item.file_type == "VIDEO" %}
+        <div class="flex min-w-40 min-h-40">
+            <video controls autoplay muted loop class="h-full w-full max-h-[100vh]">
+                <source src="{{ item.content.url }}" type="video/{{ item.content.url|split_dot }}">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>

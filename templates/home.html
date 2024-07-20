@@ -151,15 +151,15 @@
         </div>
 
         <!-- Gallery -->
-        <div class="relative px-4 sm:px-12 py-16 pb-24 flex overflow-x-hidden overflow-y-visible w-full">
+        <div id="gallery" class="relative px-4 sm:px-12 py-16 pb-24 flex overflow-x-hidden overflow-y-visible w-full">
             <div id="chordDisplay" class="flex items-center gap-28 w-[60%] max-w-[600px] m-auto">
                 {% for item in gallery_items %}
                 {% if item.file_type == "IMAGE" %}
-                    <a href="{{ item.content.url }}" class="card z-20">
+                    <a href="{% url "check_media" item.id "home"%}" class="card z-20">
                         <img src="{{ item.content.url }}" alt="" class="w-full object-cover">
                     </a>
                 {% elif item.file_type == "VIDEO" %}
-                    <a href="{{ item.content.url }}" class="flex card min-w-40 min-h-40 z-20">
+                    <a href="{% url "check_media" item.id "home"%}" class="flex card min-w-40 min-h-40 z-20">
                         <video width="100%" height="100%" autoplay muted loop>
                             <source src="{{ item.content.url }}" type="video/{{ item.content.url|split_dot }}">
                             Your browser does not support the video tag.

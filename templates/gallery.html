@@ -45,11 +45,11 @@
 
             {% for item in gallery_items %}
             {% if item.file_type == "IMAGE" %}
-                <a href="{{ item.content.url }}">
+                <a href="{% url "check_media" item.id "gallery"%}">
                     <img src="{{ item.content.url }}" alt="" class="object-cover">
                 </a>
             {% elif item.file_type == "VIDEO" %}
-                <a href="{{ item.content.url }}" class="flex h-full object-cover">
+                <a href="{% url "check_media" item.id "gallery"%}" class="flex h-full object-cover">
                     <video width="100%" height="100%" autoplay muted loop>
                         <source src="{{ item.content.url }}" type="video/{{ item.content.url|split_dot }}">
                         Your browser does not support the video tag.
