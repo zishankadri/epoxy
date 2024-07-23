@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import GalleryItem
 from django.conf import settings
+from django.http import JsonResponse
 
 import os
 
@@ -58,5 +59,19 @@ def check_media(request, item_id, origin):
         "item": item,
         "origin": origin
     }
-    
-    return render(request, "check_media.html", context)
+    # prefered_language = #sessions ...
+    # return render(request, f"{ prefered_language }/check_media.html", context)
+    return render(request, f"check_media.html", context)
+
+def change_lang(request):
+    lang_code = request.GET.get('lang_code')
+
+    if lang_code and lang_code in dict(settings.LANGUAGES):
+        response = JsonResponse({"message": "Language preference set"})
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code, max_age=365*24*60*60)
+
+        language = request.COOKIES.get('language', 'en')
+        response.set_cookie('language', 'es', max_age=365*24*60*60) 
+        return response
+    else:
+        return JsonResponse({"error": "Invalid language code"}, status=400)
