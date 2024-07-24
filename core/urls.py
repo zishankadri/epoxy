@@ -10,7 +10,9 @@ urlpatterns = [
     path('contact/', views.contact, name="contact"),
     path('gallery/', views.gallery, name="gallery"),
     path('about_us/', views.about_us, name="about_us"),
-    path('check_media/<str:item_id>/<str:origin>', views.check_media, name="check_media"),
+    path('check_media/<str:item_id>/<str:origin>/', views.check_media, name="check_media"),
+
+    path('change_lang/', views.change_lang, name="change_lang"),
 
 ]
 

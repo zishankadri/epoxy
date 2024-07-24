@@ -7,6 +7,9 @@ import os
 
 
 def home(request): 
+    language = request.COOKIES.get('language', 'en')
+    if not language: language="en"
+
     static_dir = os.path.join(settings.BASE_DIR, 'static', 'images', 'colors')
     image_files = []
 
@@ -26,7 +29,7 @@ def home(request):
         'gallery_items': gallery_items,
     }
 
-    return render(request, "home.html", context)
+    return render(request, f"{ language }/home.html", context)
 
 
 def contact(request):
@@ -34,6 +37,9 @@ def contact(request):
 
 
 def gallery(request):
+    language = request.COOKIES.get('language', 'en')
+    if not language: language="en"
+
     gallery_items = GalleryItem.objects.all().order_by('rank')
 
     context = {
@@ -63,15 +69,14 @@ def check_media(request, item_id, origin):
     # return render(request, f"{ prefered_language }/check_media.html", context)
     return render(request, f"check_media.html", context)
 
+
 def change_lang(request):
     lang_code = request.GET.get('lang_code')
 
-    if lang_code and lang_code in dict(settings.LANGUAGES):
+    if lang_code and lang_code in settings.MY_LANGUAGES:
         response = JsonResponse({"message": "Language preference set"})
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code, max_age=365*24*60*60)
+        response.set_cookie(settings.MY_LANGUAGE_COOKIE_NAME, lang_code, max_age=365*24*60*60)
 
-        language = request.COOKIES.get('language', 'en')
-        response.set_cookie('language', 'es', max_age=365*24*60*60) 
         return response
     else:
-        return JsonResponse({"error": "Invalid language code"}, status=400)
+        return JsonResponse({"error": f"Invalid language code {lang_code} "}, status=400)

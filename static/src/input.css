@@ -41,8 +41,13 @@ nav ul {
     
 
 
-input, .regular-input {
-    @apply !w-full bg-white/10 p-2.5 rounded-full border border-gray-600 focus:outline-blue-500 focus:border-blue-500;
+.home-input {
+    /* @apply !w-full bg-white/10 p-2.5 rounded-full border border-gray-600 focus:outline-blue-500; */
+    @apply !w-full bg-white/10 p-2.5 rounded-full border border-gray-600;
+}
+
+.regular-input {
+    @apply bg-transparent text-sm rounded-lg block w-full p-2.5 ring-1 ring-inset ring-gray-700 placeholder-gray-400 focus:ring-blue-500 outline-none text-white;
 }
 
 

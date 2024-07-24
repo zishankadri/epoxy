@@ -179,3 +179,9 @@ cloudinary.config(
 	api_key = "747535543642996",
 	api_secret = "b-CwIGz8S-VqALmYkuOZCM1XwGM",
 )
+
+MY_LANGUAGE_COOKIE_NAME = "language"
+MY_LANGUAGES = [
+    "en",
+    "es",
+]

@@ -1,0 +1,235 @@
+{% load compress %}
+{% load static %}
+
+{% comment %} {% load custom_filters %} {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo-black.png' %}"/>
+    
+    <meta property="og:title" content="Epoxy214" />
+    <meta property="og:type" content="webapp" />
+    <meta property="og:url" content="https://www.epoxy214.com/" />
+    <meta property="og:image" content="https://www.epoxy214.com/static/images/og_image.png" />
+    <meta property="og:description" content="Durable, Stylish, and Customizable Solutions for Every Surface." />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epoxy214</title>
+
+    <!-- Tailwind CSS -->
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+    <!-- Font Awesome -->
+    <link href="{% static 'fontawsome/css/fontawesome.css' %}" rel="stylesheet">
+    <link href="{% static 'fontawsome/css/brands.css' %}" rel="stylesheet">
+    <link href="{% static 'fontawsome/css/solid.css' %}" rel="stylesheet">
+
+    <!-- Google fonts (Roboto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    {% block head %}{% endblock head %}
+
+</head>
+{% comment %} <body class="bg-brand-dark-xl text-white font-roboto"> {% endcomment %}
+{% comment %} <body class="bg-[#222] text-white  font-"> {% endcomment %}
+<body class="">
+
+    <!-- Navigation Bar -->
+    <nav id="bg-color"
+        class="">
+        <a href="/" class="max-w-[50%]">
+            {% block logo %}
+            <img src="{% static "./images/logo-black.png" %}" alt="Logo" class="w-24">
+            {% endblock logo %}
+        </a>
+
+        <!-- Nav-links -->
+        <ul class="nav-links w-full lg:w-auto">
+            {% comment %} <li class="nav-link "><a href="#about-us">About us</a></li> {% endcomment %}
+            <li class="nav-link"><a href="/gallery/">Gallery</a></li>
+            <li class="nav-link"><a href="/#testimonials">Testimonials</a></li>
+            <li class="nav-link"><a href="/contact/">Contact</a></li>
+            <li class="nav-link"><a href="/about_us/">About Us</a></li>
+            <li class="nav-link"><a href="/admin/">Admin</a></li>
+        </ul>
+
+        <div class="">
+            <select name="lang-select" id="lang-select" class="regular-input ring-0" onclick="changeLanguage()">
+                <option value="en" class="text-black"> English </option>
+                <option value="es" class="text-black"> Spanish </option>
+            </select>
+        </div>
+
+        <!-- Hamburger menu for smaller devices -->
+        <a href="javascript:void(0);" class="hamburger flex lg:hidden z-40">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </nav>
+
+
+    <!-- <div class="main flex flex-col"> -->
+        
+        {% block main %} {% endblock main %}
+
+    <!-- </div>  -->
+    <footer class="bg-black/80 text-white mt-24">
+        <div class="flex flex-col sm:flex-row w-full p-4 sm:p-8 justify-between h-full">
+            <a href="/" class="flex items-center self-center max-w-[20%]"> <img src="{% static "images/logo.png" %}" alt="" class=""> </a>
+
+            <ul class="flex flex-col gap-2 font-light">
+                <h2 class="font-medium">Pages</h2>
+
+                <li> <a href="/">Home</a></li>
+                <li> <a href="/gallery/"> Gallery </a> </li>
+                <li> <a href="/#testimonials"> Testimonials </a> </li>
+                <li> <a href="/about_us/"> About Us </a> </li>
+                
+                {% if request.user.is_superuser %}
+                <li> <a href="/admin_support/"> Support </a> </li>
+                <li> <a href="/admin/table/Chapter/"> Admin </a> </li>
+                {% else %}
+                <li> <a href="/"> Contact </a> </li>
+                {% endif %}
+            </ul>
+
+            <div class="flex flex-col gap-4 font-light pt-8 sm:p-0">
+                <h2 class="font-medium">Contact</h2>
+                <div> <i class="fa-solid fa-phone w-6 text-center"></i> 214-226-1958 </div>
+                <div> <i class="fa-solid fa-envelope w-6 text-center"></i> sales@epoxy214.com  </div>
+                <div> <i class="fa-solid fa-location-dot w-6 text-center"></i> Haslet Texas, USA </div>
+            </div>
+
+            <div class="flex gap-2 h-full mt-auto pt-8 sm:p-0">
+                <a href="https://www.instagram.com/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center pb-4 text-white/70">
+            <p>
+                Copyright {% now "Y" %} © Epoxy214
+            </p>
+            <p>
+                All Right Reserved.
+            </p>
+            <p class="">
+                Powered by 
+                <a href="https://www.apsolife.com/" class="text-white underline">Apsolife Media Studios</a>
+            </p>
+        </div>
+    </footer>
+
+
+    {% if messages %}
+    <ul class="messages absolute flex flex-col top-0 items-end w-full gap-1 p-2 z-20 overflow-hidden">
+        {% for message in messages %}
+        <li class="message flex rounded-md justify-between w-96 border border-l-2 text-slate-900 !bg-white z-20
+            {% if message.tags == 'error' %} border-l-red-400 text-red-400 
+            {% elif message.tags == 'info' %} border-l-blue-400 
+            {% elif message.tags == 'success' %} border-l-green-400 
+            {% endif %}
+        ">
+            <span class="message-text p-4 ">
+            {{ message }}
+            </span>
+            <button class="msg-destroy-btn !text-slate-500 p-4 hover:bg-slate-100"><i class="fa-solid fa-x"></i></button>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+</body>
+
+<script>
+
+    function changeLanguage(langCode) {
+        langSelect = document.getElementById('lang-select').value;
+
+        fetch(`/change_lang/?lang_code=${langSelect}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    console.log(data.message);
+                    location.reload();
+                } else if (data.error) {
+                    console.error(data.error);
+                    alert(data.error);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+
+<script>
+    // typing effect
+    function typeWriter(textElement, text, speed) {
+        let i = 0;
+
+        function type() {
+            if (i < text.length) {
+                textElement.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            } else {
+                // i = 0;
+                // textElement.textContent = ''; // Reset the text content
+                // setTimeout(type, speed); // Start typing again after resetting
+            }
+        }
+
+        // Start the typing function initially
+        type();
+    }
+
+    const textElement = document.getElementById('typing-effect');
+    const text = textElement.textContent.trim(); // Get the text content and trim whitespace
+    textElement.textContent = ''; // Clear initial text
+
+    // Call the typing function with your desired speed (adjust speed as needed)
+    typeWriter(textElement, text, 20); // Speed in milliseconds (e.g., 100ms)
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const hamburger = document.getElementsByClassName("hamburger")[0];
+        const navLinks = document.getElementsByClassName("nav-links")[0];
+        const navLinkItems = document.querySelectorAll('.nav-link a');
+
+        hamburger.addEventListener('click', function () {
+            if (navLinks.style.display === "none" || navLinks.style.display === "") {
+                navLinks.style.display = "flex";
+            } else {
+                navLinks.style.display = "none";
+            }
+        });
+
+    });
+
+
+</script>
+
+
+</html>

@@ -67,6 +67,13 @@
             <li class="nav-link"><a href="/admin/">Admin</a></li>
         </ul>
 
+        <div class="">
+            <select name="lang-select" id="lang-select" class="regular-input ring-0" onclick="changeLanguage()">
+                <option value="en" class="text-black"> English </option>
+                <option value="es" class="text-black"> Spanish </option>
+            </select>
+        </div>
+
         <!-- Hamburger menu for smaller devices -->
         <a href="javascript:void(0);" class="hamburger flex lg:hidden z-40">
             <span></span>
@@ -156,6 +163,25 @@
     
 </body>
 
+<script>
+
+    function changeLanguage(langCode) {
+        langSelect = document.getElementById('lang-select').value;
+
+        fetch(`/change_lang/?lang_code=${langSelect}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    console.log(data.message);
+                    alert(data.message);
+                } else if (data.error) {
+                    console.error(data.error);
+                    alert(data.error);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
 
 <script>
     // typing effect
