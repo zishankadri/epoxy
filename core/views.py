@@ -33,7 +33,10 @@ def home(request):
 
 
 def contact(request):
-    return render(request, "contact.html")
+    language = request.COOKIES.get('language', 'en')
+    if not language: language="en"
+    
+    return render(request, f"{ language }/contact.html")
 
 
 def gallery(request):
@@ -46,14 +49,20 @@ def gallery(request):
         'gallery_items': gallery_items,
     }
 
-    return render(request, "gallery.html", context)
+    return render(request, f"{ language }/gallery.html", context)
 
 
 def about_us(request):
-    return render(request, "about_us.html")
+    language = request.COOKIES.get('language', 'en')
+    if not language: language="en"
+
+    return render(request, f"{ language }/about_us.html")
 
 
 def check_media(request, item_id, origin):
+    language = request.COOKIES.get('language', 'en')
+    if not language: language="en"
+
     item = GalleryItem.objects.get(id=item_id)
 
     if origin == "home":
@@ -67,9 +76,10 @@ def check_media(request, item_id, origin):
     }
     # prefered_language = #sessions ...
     # return render(request, f"{ prefered_language }/check_media.html", context)
-    return render(request, f"check_media.html", context)
+    return render(request, f"{ language }/check_media.html", context)
 
 
+# APIs
 def change_lang(request):
     lang_code = request.GET.get('lang_code')
 

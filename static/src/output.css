@@ -2120,13 +2120,11 @@ nav ul {
 .regular-input {
   display: block;
   width: 100%;
-  border-radius: 0.5rem;
+  border-radius: 9999px;
   background-color: transparent;
   padding: 0.625rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .regular-input::-moz-placeholder {
