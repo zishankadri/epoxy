@@ -2121,6 +2121,7 @@ nav ul {
   display: block;
   width: 100%;
   border-radius: 9999px;
+  border-style: none;
   background-color: transparent;
   padding: 0.625rem;
   font-size: 0.875rem;

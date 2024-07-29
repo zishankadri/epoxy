@@ -60,17 +60,17 @@
         <!-- Nav-links -->
         <ul class="nav-links w-full lg:w-auto">
             {% comment %} <li class="nav-link "><a href="#about-us">About us</a></li> {% endcomment %}
-            <li class="nav-link"><a href="/gallery/">Gallery</a></li>
-            <li class="nav-link"><a href="/#testimonials">Testimonials</a></li>
-            <li class="nav-link"><a href="/contact/">Contact</a></li>
-            <li class="nav-link"><a href="/about_us/">About Us</a></li>
-            <li class="nav-link"><a href="/admin/">Admin</a></li>
+            <li class="nav-link"><a href="/gallery/">Galería</a></li>
+            <li class="nav-link"><a href="/#testimonials">Testimonios</a></li>
+            <li class="nav-link"><a href="/contact/">Contacto</a></li>
+            <li class="nav-link"><a href="/about_us/">Sobre nosotras</a></li>
+            <li class="nav-link"><a href="/admin/">Administradora</a></li>
         </ul>
 
         <div class="">
             <select name="lang-select" id="lang-select" class="regular-input ring-0" onclick="changeLanguage()">
-                <option value="en" class="text-black"> English </option>
                 <option value="es" class="text-black"> Spanish </option>
+                <option value="en" class="text-black"> English </option>
             </select>
         </div>
 
@@ -93,50 +93,49 @@
             <a href="/" class="flex items-center self-center max-w-[20%]"> <img src="{% static "images/logo.png" %}" alt="" class=""> </a>
 
             <ul class="flex flex-col gap-2 font-light">
-                <h2 class="font-medium">Pages</h2>
+                <h2 class="font-medium">paginas</h2>
 
-                <li> <a href="/">Home</a></li>
-                <li> <a href="/gallery/"> Gallery </a> </li>
-                <li> <a href="/#testimonials"> Testimonials </a> </li>
-                <li> <a href="/about_us/"> About Us </a> </li>
+                <li> <a href="/">Hogar</a></li>
+                <li> <a href="/gallery/"> Galería </a> </li>
+                <li> <a href="/#testimonials"> Testimonios </a> </li>
+                <li> <a href="/about_us/"> Sobre nosotras </a> </li>
                 
                 {% if request.user.is_superuser %}
-                <li> <a href="/admin_support/"> Support </a> </li>
-                <li> <a href="/admin/table/Chapter/"> Admin </a> </li>
+                <li> <a href="/admin/table/Chapter/"> Administradora </a> </li>
                 {% else %}
-                <li> <a href="/"> Contact </a> </li>
+                <li> <a href="/"> Contacto </a> </li>
                 {% endif %}
             </ul>
 
             <div class="flex flex-col gap-4 font-light pt-8 sm:p-0">
-                <h2 class="font-medium">Contact</h2>
+                <h2 class="font-medium">Contacto</h2>
                 <div> <i class="fa-solid fa-phone w-6 text-center"></i> 214-226-1958 </div>
                 <div> <i class="fa-solid fa-envelope w-6 text-center"></i> sales@epoxy214.com  </div>
                 <div> <i class="fa-solid fa-location-dot w-6 text-center"></i> Haslet Texas, USA </div>
             </div>
 
             <div class="flex gap-2 h-full mt-auto pt-8 sm:p-0">
-                <a href="https://www.instagram.com/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                <a href="https://www.instagram.com/epoxy214" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a href="/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                <a href="https://www.facebook.com/epoxy214" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
                     <i class="fa-brands fa-facebook"></i>
                 </a>
-                <a href="/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
-                    <i class="fa-brands fa-twitter"></i>
+                <a href="https://www.tiktok.com/mellamoalexanderortiz" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-tiktok"></i>
                 </a>
             </div>
         </div>
 
         <div class="flex flex-col items-center pb-4 text-white/70">
             <p>
-                Copyright {% now "Y" %} © Epoxy214
+                Derechos de autor {% now "Y" %} © Epoxy214
             </p>
             <p>
-                All Right Reserved.
+                Todos los derechos reservados.
             </p>
             <p class="">
-                Powered by 
+                Energizado por
                 <a href="https://www.apsolife.com/" class="text-white underline">Apsolife Media Studios</a>
             </p>
         </div>
@@ -173,7 +172,7 @@
             .then(data => {
                 if (data.message) {
                     console.log(data.message);
-                    alert(data.message);
+                    location.reload();
                 } else if (data.error) {
                     console.error(data.error);
                     alert(data.error);

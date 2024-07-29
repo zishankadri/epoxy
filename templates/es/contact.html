@@ -1,4 +1,4 @@
-{% extends "_base.html" %}
+{% extends "es/_base.html" %}
 
 {% load static %}
 
@@ -29,8 +29,8 @@
     <div class="group home-container group pt-12 w-full mt-24">
         <!-- Title -->
         <div class="w-full mb-4 sm:mb-8">
-            <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold text-slate-700">Contact</h1>
-            <p class="text-slate-700">If you have any questions or inquiries, feel free to reach out to us.</p>
+            <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold text-slate-700">Contacto</h1>
+            <p class="text-slate-700">Si tiene alguna pregunta o consulta, no dude en comunicarse con nosotros.</p>
         </div>
 
         <div class="flex flex-col justify-between items-center lg:items-start lg:flex-row gap-8">
@@ -38,40 +38,40 @@
                 {% csrf_token %}
                 <!-- Full name -->
                 <div class="w-full">
-                    <label for="full-name" class="block mb-2 text-sm font-medium text-gray-700">Full name</label>
+                    <label for="full-name" class="block mb-2 text-sm font-medium text-gray-700">Nombre completo</label>
                     <input type="text" name="" id="" class="regular-input">
                 </div>
                 <!-- Email -->
                 <div class="w-full">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Email</label>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Correo electrónico</label>
                     <input type="text" name="" id="" class="regular-input">
                 </div>
                 <!-- Describe Brief -->
                 <div class="w-full">
-                    <label for="brief" class="block mb-2 text-sm font-medium text-gray-700">What are you looking to get done?</label>
+                    <label for="brief" class="block mb-2 text-sm font-medium text-gray-700">¿Qué estás buscando hacer?</label>
                     <textarea name="" id="" class="regular-input !rounded-3xl"></textarea>                
                 </div>
                 
-                <button class="btn-primary self-end">Submit</button>
+                <button class="btn-primary self-end">Entregar</button>
                 
             </form>
         
             <div class="flex flex-col gap-6 w-full lg:w-[50%] lg:pl-5 lg:border-l border-gray-400">
                 <!-- Location -->
                 <div class="text-slate-700">
-                    <i class="fa-solid fa-location-dot"></i> <span class="font-semibold ml-2">Location</span>
+                    <i class="fa-solid fa-location-dot"></i> <span class="font-semibold ml-2">Ubicación</span>
                 </div>
                 <!-- MAP -->
                 <div id="map" class="rounded-lg h-80"></div>
 
                 <!-- Phone -->
                 <div class="text-slate-700">
-                    <i class="fa-solid fa-phone"></i> <span class="font-semibold ml-2">Phone no</span>
+                    <i class="fa-solid fa-phone"></i> <span class="font-semibold ml-2">Telefono no</span>
                     <p>214-226-1958</p>
                 </div>
                 <!-- Email -->
                 <div class="text-slate-700">
-                    <i class="fa-solid fa-envelope"></i> <span class="font-semibold ml-2">Email</span>
+                    <i class="fa-solid fa-envelope"></i> <span class="font-semibold ml-2">Correo electrónico</span>
                     <p>info@gmail.com</p>
                     <p>support@gmail.com</p>
 

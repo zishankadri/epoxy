@@ -1,11 +1,11 @@
-{% extends "en/_base.html" %}
+{% extends "es/_base.html" %}
 
 {% load static %}
 {% load custom_filters %}
 
 {% block head %} 
     {% load static %}
-    <title>Home</title>
+    <title>Hogar</title>
 
     <!-- Font Awesome -->
     <link href="./fontawsome/css/fontawesome.css" rel="stylesheet">
@@ -43,14 +43,14 @@
                 <div class="relative flex flex-col gap-8">
                     <h1 class="">
                         <span class="text-6xl font-bebas">
-                            Elegant <br>
+                            Elegante <br>
                             Epoxy <br>
-                            Flooring.
+                            Piso.
                         </span>
                     </h1>
                     <div class="fixed-size">
                         <p class="text-gray-200 text-lg w-[30ch] max-w-[30ch] lg:w-[50ch] lg:max-w-[50ch]" id="typing-effect">
-                            Durable, Stylish, and Customizable Solutions for Every Surface
+                            Soluciones duraderas, elegantes y personalizables para cada superficie
                         </p>
                     </div>
 
@@ -65,28 +65,28 @@
 
                 <form method="post" class="group flex flex-col gap-4 items-start sm:max-w-[40%] w-full bg-white/10 p-8 rounded-xl">
                     {% csrf_token %}
-                    <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold">Contact</h1>
+                    <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold">Contacto</h1>
                     <!-- Full name -->
                     <div class="w-full">
-                        <label for="full-name" class="block mb-2 text-sm font-medium text-gray-200">Full name</label>
+                        <label for="full-name" class="block mb-2 text-sm font-medium text-gray-200">Nombre completo</label>
                         <input type="text" name="" id="" class="regular-input">
                     </div>
                     <!-- Email -->
                     <div class="w-full">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Email</label>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Correo electrónico</label>
                         <input type="text" name="" id="" class="regular-input">
                     </div>
                     <div class="w-full">
-                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-200">Phone</label>
+                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-200">Teléfono</label>
                         <input type="text" name="" id="" class="regular-input">
                     </div>
                     <!-- Describe Brief -->
                     <div class="w-full">
-                        <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">What are you looking to get done?</label>
+                        <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">¿Qué estás buscando hacer?</label>
                         <textarea name="" id="" class="regular-input !rounded-3xl"></textarea>                
                     </div>
                     
-                    <button class="btn-primary self-end">Submit</button>
+                    <button class="btn-primary self-end">Entregar</button>
                     
                 </form>
             </div>
@@ -105,40 +105,40 @@
                 <i class="fa-solid fa-star-of-life"></i>
             </div>
             <div class="flex-1">
-                <h2 class="text-5xl font-medium mb-12 font-bebas">Why Choose Us?</h2>
+                <h2 class="text-5xl font-medium mb-12 font-bebas">¿Por qué elegirnos?</h2>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-3 mt-8 gap-5 lg:pr-8">
                     <!-- diamond -->
                     <div class="box">
                         <img src="{% static "images/diamond-dark-mode--unscreen.gif" %}" alt="">
                         <div>
-                            <h2 class="text-2xl">Top-notch quality</h2>
+                            <h2 class="text-2xl">Calidad de primer nivel</h2>
                         </div>
                         <div>
                             <p>
-                                We use only high-grade materials for our epoxy floors, ensuring exceptional durability and strength, so your investment lasts for many years.
+                                Utilizamos únicamente materiales de alta calidad para nuestros pisos epoxi, lo que garantiza una durabilidad y resistencia excepcionales, para que su inversión dure muchos años.                                
                             </p>
                         </div>
                     </div>
                     <div class="box">
                         <img src="{% static "images/clock-ldark-mode-unscreen.gif" %}" alt="">
                         <div>
-                            <h2 class="text-2xl">Quick Installation</h2>
+                            <h2 class="text-2xl">Instalación rápida</h2>
                         </div>
                         <div>
                             <p>
-                                We understand the value of your time. Our streamlined process allows us to complete the installation of your epoxy floors in just one day, minimizing any disruption.
+                                Entendemos el valor de su tiempo. Nuestro proceso simplificado nos permite completar la instalación de sus pisos epoxi en solo un día, minimizando cualquier interrupción.
                             </p>
                         </div>
                     </div>
                     <div class="box">
                         <img src="{% static "images/saving-dark-mode--unscreen.gif" %}" alt="">
                         <div>
-                            <h2 class="text-2xl">Free Estimates</h2>
+                            <h2 class="text-2xl">Presupuestos Gratis</h2>
                         </div>
                         <div>
                             <p>
-                                We offer free consultations and estimates for all our services, giving you the chance to plan your project with no obligations and complete transparency.
+                                Ofrecemos consultas y presupuestos gratuitos para todos nuestros servicios, brindándote la oportunidad de planificar tu proyecto sin compromisos y con total transparencia.
                             </p>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
                     <a href="{% url "check_media" item.id "home"%}" class="flex card min-w-40 min-h-40 z-20">
                         <video width="100%" height="100%" autoplay muted loop>
                             <source src="{{ item.content.url }}" type="video/{{ item.content.url|split_dot }}">
-                            Your browser does not support the video tag.
+                            Su navegador no soporta la etiqueta de vídeo.
                         </video>
                     </a>
                 {% endif %}
@@ -178,7 +178,7 @@
         </div>
 
         <!--  -->
-        {% include "components/_testimonials.html" %}
+        {% include "es/components/_testimonials.html" %}
         <!--  -->
 
         <div class="flex mt-24 px-4 lg:px-0 justify-center" id="why-us">
@@ -186,7 +186,7 @@
                 <i class="fa-solid fa-palette"></i>
             </div>
             <div class="flex-1">
-                <h2 class="text-5xl font-medium mb-12 gradient-text font-bebas">Colors</h2>
+                <h2 class="text-5xl font-medium mb-12 gradient-text font-bebas">Colores</h2>
                 <div class="lg:max-w-[1600px] flex justify-center lg:justify-start flex-wrap gap-8 lg:gap-12 py-8">
                     {% for image in image_files %}
                     <div class="color-box">
