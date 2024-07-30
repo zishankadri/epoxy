@@ -7,8 +7,9 @@ import os
 
 
 def home(request): 
-    language = request.COOKIES.get('language', 'en')
-    if not language: language="en"
+    # language = request.COOKIES.get('language', 'en')
+    # if not language: language="en"
+    language = request.session.get(settings.MY_LANGUAGE_COOKIE_NAME, 'en')
 
     static_dir = os.path.join(settings.BASE_DIR, 'static', 'images', 'colors')
     image_files = []
@@ -33,15 +34,17 @@ def home(request):
 
 
 def contact(request):
-    language = request.COOKIES.get('language', 'en')
-    if not language: language="en"
+    # language = request.COOKIES.get('language', 'en')
+    # if not language: language="en"
+    language = request.session.get(settings.MY_LANGUAGE_COOKIE_NAME, 'en')
     
     return render(request, f"{ language }/contact.html")
 
 
 def gallery(request):
-    language = request.COOKIES.get('language', 'en')
-    if not language: language="en"
+    # language = request.COOKIES.get('language', 'en')
+    # if not language: language="en"
+    language = request.session.get(settings.MY_LANGUAGE_COOKIE_NAME, 'en')
 
     gallery_items = GalleryItem.objects.all().order_by('rank')
 
@@ -53,8 +56,9 @@ def gallery(request):
 
 
 def about_us(request):
-    language = request.COOKIES.get('language', 'en')
-    if not language: language="en"
+    # language = request.COOKIES.get('language', 'en')
+    # if not language: language="en"
+    language = request.session.get(settings.MY_LANGUAGE_COOKIE_NAME, 'en')
 
     return render(request, f"{ language }/about_us.html")
 
@@ -85,7 +89,8 @@ def change_lang(request):
 
     if lang_code and lang_code in settings.MY_LANGUAGES:
         response = JsonResponse({"message": "Language preference set"})
-        response.set_cookie(settings.MY_LANGUAGE_COOKIE_NAME, lang_code, max_age=365*24*60*60)
+        # response.set_cookie(settings.MY_LANGUAGE_COOKIE_NAME, lang_code, max_age=365*24*60*60)
+        request.session[settings.MY_LANGUAGE_COOKIE_NAME] = lang_code
 
         return response
     else:
