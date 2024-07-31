@@ -1569,6 +1569,11 @@ input[type="number"]::-webkit-inner-spin-button,
   background-color: rgb(34 34 34 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-black\/50 {
   background-color: rgb(0 0 0 / 0.5);
 }
@@ -1621,6 +1626,11 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .bg-white\/30 {
   background-color: rgb(255 255 255 / 0.3);
+}
+
+.\!bg-black {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
 }
 
 .object-cover {
@@ -2005,7 +2015,7 @@ nav {
   padding-bottom: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   nav {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -2021,7 +2031,7 @@ nav ul {
   gap: 0px;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   nav ul {
     flex-direction: row;
     gap: 1rem;
@@ -2037,7 +2047,7 @@ nav ul {
   text-align: center;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .nav-links {
     display: flex;
     flex-direction: row;
@@ -2059,7 +2069,7 @@ nav ul {
   padding-right: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .nav-links a {
     background-color: transparent;
   }
@@ -2081,7 +2091,7 @@ nav ul {
   background-color: rgb(224 36 36 / var(--tw-bg-opacity));
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .nav-links a {
     background-color: transparent;
   }
@@ -2696,8 +2706,26 @@ nav ul {
     margin-bottom: 2rem;
   }
 
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:h-96 {
     height: 24rem;
+  }
+
+  .md\:\!bg-black {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
+  }
+
+  .md\:\!bg-transparent {
+    background-color: transparent !important;
+  }
+
+  .md\:text-black {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
   }
 }
 
@@ -2858,4 +2886,11 @@ nav ul {
 
 .\[\&_input\]\:w-full input {
   width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .lg\:\[\&_option\]\:text-black option {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
 }

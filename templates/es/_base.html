@@ -65,14 +65,13 @@
             <li class="nav-link"><a href="/contact/">Contacto</a></li>
             <li class="nav-link"><a href="/about_us/">Sobre nosotras</a></li>
             <li class="nav-link"><a href="/admin/">Administradora</a></li>
+            <div class="">
+                <select name="lang-select" id="lang-select" class="regular-input !bg-black md:!bg-transparent lg:[&_option]:text-black ring-0" onchange="changeLanguage()">
+                    <option value="es" class=""> Spanish </option>
+                    <option value="en" class=""> English </option>
+                </select>
+            </div>
         </ul>
-
-        <div class="">
-            <select name="lang-select" id="lang-select" class="regular-input ring-0" onchange="changeLanguage()">
-                <option value="es" class="text-black"> Spanish </option>
-                <option value="en" class="text-black"> English </option>
-            </select>
-        </div>
 
         <!-- Hamburger menu for smaller devices -->
         <a href="javascript:void(0);" class="hamburger flex lg:hidden z-40">

@@ -13,22 +13,22 @@
 
 nav {
     @apply absolute max-w-[1600px] flex m-auto top-0 flex-col justify-start items-center;
-    @apply  gap-0 h-24 z-50 px-8 py-4 sm:py-8 w-full left-[50%] translate-x-[-50%];
-    @apply sm:flex-row sm:justify-between sm:gap-4;
+    @apply  gap-0 h-24 z-50 px-8 py-4 md:py-8 w-full left-[50%] translate-x-[-50%];
+    @apply md:flex-row md:justify-between md:gap-4;
 }
 nav ul {
     @apply flex-col justify-start gap-0;
-    @apply sm:flex-row sm:gap-4;
+    @apply md:flex-row md:gap-4;
 }
 .nav-links {
     @apply hidden w-full text-center flex-col justify-between gap-2;
-    @apply sm:flex sm:flex-row;
+    @apply md:flex md:flex-row;
 /* @apply px-5 py-2.5 rounded-md hover:bg-yellow-500/40 transition-all duration-200 ease-in-out; */
 
 }
 .nav-links a {
-    @apply py-8 lg:py-2 px-4 block w-full bg-black/90 sm:bg-transparent rounded-md;
-    @apply sm:bg-transparent hover:bg-red-600 duration-200
+    @apply py-8 lg:py-2 px-4 block w-full bg-black/90 md:bg-transparent rounded-md;
+    @apply md:bg-transparent hover:bg-red-600 duration-200
 }
 
 
