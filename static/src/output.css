@@ -1025,6 +1025,10 @@ input[type="number"]::-webkit-inner-spin-button,
   z-index: 40;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -1114,6 +1118,10 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .inline-flex {
   display: inline-flex;
+}
+
+.table {
+  display: table;
 }
 
 .grid {
@@ -1442,10 +1450,6 @@ input[type="number"]::-webkit-inner-spin-button,
   scroll-behavior: smooth;
 }
 
-.\!rounded-3xl {
-  border-radius: 1.5rem !important;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1554,6 +1558,11 @@ input[type="number"]::-webkit-inner-spin-button,
   border-left-color: rgb(249 128 128 / var(--tw-border-opacity));
 }
 
+.\!bg-black {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
+}
+
 .\!bg-white {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
@@ -1567,11 +1576,6 @@ input[type="number"]::-webkit-inner-spin-button,
 .bg-\[\#222\] {
   --tw-bg-opacity: 1;
   background-color: rgb(34 34 34 / var(--tw-bg-opacity));
-}
-
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-black\/50 {
@@ -1626,11 +1630,6 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .bg-white\/30 {
   background-color: rgb(255 255 255 / 0.3);
-}
-
-.\!bg-black {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
 }
 
 .object-cover {
@@ -1851,11 +1850,6 @@ input[type="number"]::-webkit-inner-spin-button,
   color: rgb(100 116 139 / var(--tw-text-opacity)) !important;
 }
 
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
@@ -1974,6 +1968,10 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .brightness-50 {
   --tw-brightness: brightness(.5);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -2162,6 +2160,10 @@ nav ul {
 .regular-input:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(63 131 248 / var(--tw-ring-opacity));
+}
+
+textarea {
+  border-radius: 1.5rem !important;
 }
 
 .forum-input {
@@ -2714,18 +2716,8 @@ nav ul {
     height: 24rem;
   }
 
-  .md\:\!bg-black {
-    --tw-bg-opacity: 1 !important;
-    background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
-  }
-
   .md\:\!bg-transparent {
     background-color: transparent !important;
-  }
-
-  .md\:text-black {
-    --tw-text-opacity: 1;
-    color: rgb(0 0 0 / var(--tw-text-opacity));
   }
 }
 
@@ -2747,8 +2739,8 @@ nav ul {
     display: none;
   }
 
-  .lg\:h-\[650px\] {
-    height: 650px;
+  .lg\:h-\[800px\] {
+    height: 800px;
   }
 
   .lg\:w-64 {
@@ -2856,6 +2848,18 @@ nav ul {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.\[\&_div_input\]\:bg-white\/10 div input {
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.\[\&_div_select\]\:bg-white\/10 div select {
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.\[\&_div_textarea\]\:bg-white\/10 div textarea {
+  background-color: rgb(255 255 255 / 0.1);
+}
+
 .\[\&_img\]\:mb-8 img {
   margin-bottom: 2rem;
 }
@@ -2886,6 +2890,15 @@ nav ul {
 
 .\[\&_input\]\:w-full input {
   width: 100%;
+}
+
+.\[\&_input\]\:p-0 input {
+  padding: 0px;
+}
+
+.\[\&_option\]\:text-black option {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 @media (min-width: 1024px) {

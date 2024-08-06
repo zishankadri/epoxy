@@ -31,7 +31,7 @@
     </style>
 
     <div class="max-w-[1600px] m-auto overflow-hidden">
-        <img src="{% static "images/background.jpg" %}" alt="" class="absolute max-w-[1600px] h-[1050px] lg:h-[650px] w-full brightness-50 -z-10 top-0 m-auto object-cover">
+        <img src="{% static "images/background.jpg" %}" alt="" class="absolute max-w-[1600px] h-[1050px] lg:h-[800px] w-full brightness-50 -z-10 top-0 m-auto object-cover">
         <div 
             class="fixed w-[20%] aspect-square bg-purple-400/40 top-0 left-0 translate-x-[-0%] translate-y-[-20%] blur-3xl rounded-full -z-20">
         </div>
@@ -39,7 +39,7 @@
             class="fixed w-[20%] aspect-square bg-orange-400/40 bottom-0 right-0 translate-y-[20%] blur-3xl rounded-full -z-20">
         </div>
         
-        <div class="relative flex text-white items-center pt-24 pb-8 h-[1050px] lg:h-[650px] overflow-hidden">
+        <div class="relative flex text-white items-center pt-24 pb-8 h-[1050px] lg:h-[800px] overflow-hidden">
             <div class="flex justify-between flex-col sm:flex-row lg:items-center home-container w-full gap-8">
                 <div class="relative flex flex-col gap-8">
                     <h1 class="">
@@ -64,29 +64,42 @@
                     <!-- </div> -->
                 </div>
 
-                <form method="post" class="group flex flex-col gap-4 items-start sm:max-w-[40%] w-full bg-white/10 p-8 rounded-xl">
+                <form method="post" enctype="multipart/form-data"
+                    class="[&_div_input]:bg-white/10 [&_div_textarea]:bg-white/10 [&_div_select]:bg-white/10
+                        group flex flex-col gap-4 items-start sm:max-w-[40%] w-full bg-white/10 p-8 rounded-xl">
                     {% csrf_token %}
                     <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold">Contact</h1>
                     <!-- Full name -->
                     <div class="w-full">
                         <label for="full-name" class="block mb-2 text-sm font-medium text-gray-200">Full name</label>
-                        <input type="text" name="" id="" class="home-input">
+                        {% comment %} <input type="text" name="" id="" class="home-input"> {% endcomment %}
+                        {{form.full_name}}
                     </div>
                     <!-- Email -->
                     <div class="w-full">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Email</label>
-                        <input type="text" name="" id="" class="home-input">
+                        {{ form.email }}
                     </div>
                     <div class="w-full">
                         <label for="phone" class="block mb-2 text-sm font-medium text-gray-200">Phone</label>
-                        <input type="text" name="" id="" class="home-input">
+                        {{form.phone}}
                     </div>
                     <!-- Describe Brief -->
                     <div class="w-full">
                         <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">What are you looking to get done?</label>
-                        <textarea name="" id="" class="home-input !rounded-3xl"></textarea>                
+                        {{ form.message }}
                     </div>
-                    
+
+                    <!-- Contact method -->
+                    <div class="w-full [&_option]:text-black">
+                        <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">How should we contact you?</label>
+                        {{ form.contact_method }}
+                    </div>
+                    <!-- Upload picture -->
+                    <div class="w-full [&_input]:p-0">
+                        <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">Upload picture</label>
+                        {{ form.image }}
+                    </div>
                     <button class="btn-primary self-end">Submit</button>
                     
                 </form>

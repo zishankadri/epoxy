@@ -39,19 +39,33 @@
                 <!-- Full name -->
                 <div class="w-full">
                     <label for="full-name" class="block mb-2 text-sm font-medium text-gray-700">Nombre completo</label>
-                    <input type="text" name="" id="" class="regular-input">
+                    {{form.full_name}}
                 </div>
                 <!-- Email -->
                 <div class="w-full">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Correo electrónico</label>
-                    <input type="text" name="" id="" class="regular-input">
+                    {{ form.email }}
+                </div>
+                <!-- Phone -->
+                <div class="w-full">
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Teléfonos</label>
+                    {{form.phone}}
                 </div>
                 <!-- Describe Brief -->
                 <div class="w-full">
                     <label for="brief" class="block mb-2 text-sm font-medium text-gray-700">¿Qué estás buscando hacer?</label>
-                    <textarea name="" id="" class="regular-input !rounded-3xl"></textarea>                
+                    {{ form.message }}
                 </div>
-                
+                <!-- Contact method -->
+                <div class="w-full">
+                    <label for="brief" class="block mb-2 text-sm font-medium text-gray-700">¿Cómo deberíamos contactar contigo?</label>
+                    {{ form.contact_method }}
+                </div>
+                <!-- Upload picture -->
+                <div class="w-full [&_input]:p-0">
+                    <label for="brief" class="block mb-2 text-sm font-medium text-gray-700">Subir foto</label>
+                    {{ form.image }}
+                </div>
                 <button class="btn-primary self-end">Entregar</button>
                 
             </form>
@@ -72,8 +86,7 @@
                 <!-- Email -->
                 <div class="text-slate-700">
                     <i class="fa-solid fa-envelope"></i> <span class="font-semibold ml-2">Correo electrónico</span>
-                    <p>info@epoxy214.com</p>
-                    <p>support@epoxy214.com</p>
+                    <p>sales@epoxy214.com</p>
 
                 </div>
 

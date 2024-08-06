@@ -19,3 +19,22 @@ class GalleryItem(models.Model):
         name, extension = os.path.splitext(self.content.name)
         return extension.lower()
 
+
+class Contact(models.Model):
+
+    CONTACT_METHOD_CHOICES = (
+        ("CALL", "Call"),
+        ("WHATSAPP", "WhatsApp"),
+        ("EMAIL", "Email"),
+    )
+    
+    full_name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=254)
+    phone = models.CharField(max_length=14)
+    message = models.TextField()
+    image = models.FileField(upload_to="contact_media/", max_length=100)
+
+    contact_method = models.CharField(choices=CONTACT_METHOD_CHOICES, max_length=50)
+    
+    def __str__(self):
+        return f"{self.full_name}"

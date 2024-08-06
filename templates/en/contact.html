@@ -39,19 +39,33 @@
                 <!-- Full name -->
                 <div class="w-full">
                     <label for="full-name" class="block mb-2 text-sm font-medium text-gray-700">Full name</label>
-                    <input type="text" name="" id="" class="regular-input">
+                    {{form.full_name}}
                 </div>
                 <!-- Email -->
                 <div class="w-full">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Email</label>
-                    <input type="text" name="" id="" class="regular-input">
+                    {{ form.email }}
+                </div>
+                <!-- Phone -->
+                <div class="w-full">
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Phone</label>
+                    {{form.phone}}
                 </div>
                 <!-- Describe Brief -->
                 <div class="w-full">
                     <label for="brief" class="block mb-2 text-sm font-medium text-gray-700">What are you looking to get done?</label>
-                    <textarea name="" id="" class="regular-input !rounded-3xl"></textarea>                
+                    {{ form.message }}
                 </div>
-                
+                <!-- Describe Brief -->
+                <div class="w-full">
+                    <label for="brief" class="block mb-2 text-sm font-medium text-gray-700">How should we contact you?</label>
+                    {{ form.contact_method }}
+                </div>
+                <!-- Upload picture -->
+                <div class="w-full [&_input]:p-0">
+                    <label for="brief" class="block mb-2 text-sm font-medium text-gray-700">Upload picture</label>
+                    {{ form.image }}
+                </div>
                 <button class="btn-primary self-end">Submit</button>
                 
             </form>
@@ -65,7 +79,7 @@
                 <!-- MAP -->
                 {% comment %} <div id="map" class="rounded-lg h-80"></div> {% endcomment %}
 
-                <!-- Phone -->
+                <!-- Phone --> 
                 <div class="text-slate-700">
                     <i class="fa-solid fa-phone"></i> <span class="font-semibold ml-2">Phone no</span>
                     <p>214-226-1958</p>
@@ -73,7 +87,6 @@
                 <!-- Email -->
                 <div class="text-slate-700">
                     <i class="fa-solid fa-envelope"></i> <span class="font-semibold ml-2">Email</span>
-                    <p>info@epoxy214.com</p>
                     <p>sales@epoxy214.com</p>
 
                 </div>

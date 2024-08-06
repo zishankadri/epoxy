@@ -2,14 +2,23 @@ from django.shortcuts import render
 from .models import GalleryItem
 from django.conf import settings
 from django.http import JsonResponse
+from .forms import ContactForm
+from django.contrib import messages
 
 import os
 
 
 def home(request): 
-    # language = request.COOKIES.get('language', 'en')
-    # if not language: language="en"
     language = request.session.get(settings.MY_LANGUAGE_COOKIE_NAME, 'en')
+
+    if request.method == "POST":
+        form = ContactForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        else:
+            messages.error(request, form.errors)
+
+        messages.success(request, "Thank you for reaching out!")
 
     static_dir = os.path.join(settings.BASE_DIR, 'static', 'images', 'colors')
     image_files = []
@@ -24,7 +33,12 @@ def home(request):
                 main_name, code = name, ''
 
     gallery_items = GalleryItem.objects.all().order_by('rank')[0:6]
+
+    form = ContactForm()
+
     context = {
+        'form': form,
+
         'image_files': image_files,
         'static_url': settings.STATIC_URL + 'images/' + 'colors/',
         'gallery_items': gallery_items,
@@ -37,8 +51,21 @@ def contact(request):
     # language = request.COOKIES.get('language', 'en')
     # if not language: language="en"
     language = request.session.get(settings.MY_LANGUAGE_COOKIE_NAME, 'en')
+
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+        messages.success(request, "Thank you for reaching out!")
+
+    form = ContactForm()
+
+    context = {
+        'form': form,
+    }
     
-    return render(request, f"{ language }/contact.html")
+    return render(request, f"{ language }/contact.html", context)
 
 
 def gallery(request):

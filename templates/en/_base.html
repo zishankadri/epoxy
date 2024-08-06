@@ -142,7 +142,7 @@
 
 
     {% if messages %}
-    <ul class="messages absolute flex flex-col top-0 items-end w-full gap-1 p-2 z-20 overflow-hidden">
+    <ul class="messages absolute flex flex-col top-0 items-end w-full gap-1 p-2 z-50 overflow-hidden">
         {% for message in messages %}
         <li class="message flex rounded-md justify-between w-96 border border-l-2 text-slate-900 !bg-white z-20
             {% if message.tags == 'error' %} border-l-red-400 text-red-400 
@@ -171,7 +171,10 @@
             .then(data => {
                 if (data.message) {
                     console.log(data.message);
+                    // Replace the current URL to prevent form resubmission on reload
+                    history.replaceState(null, null, window.location.href);
                     location.reload();
+
                 } else if (data.error) {
                     console.error(data.error);
                     alert(data.error);
@@ -191,13 +194,8 @@
                 textElement.textContent += text.charAt(i);
                 i++;
                 setTimeout(type, speed);
-            } else {
-                // i = 0;
-                // textElement.textContent = ''; // Reset the text content
-                // setTimeout(type, speed); // Start typing again after resetting
             }
         }
-
         // Start the typing function initially
         type();
     }
@@ -210,7 +208,7 @@
     typeWriter(textElement, text, 20); // Speed in milliseconds (e.g., 100ms)
 
 
-
+    // Hamburger
     document.addEventListener('DOMContentLoaded', function () {
         const hamburger = document.getElementsByClassName("hamburger")[0];
         const navLinks = document.getElementsByClassName("nav-links")[0];
@@ -226,6 +224,18 @@
 
     });
 
+    // Messages
+    const messages = document.getElementsByClassName("message");
+
+    for (let i = 0; i < messages.length; i++) { 
+        const message = messages[i];
+
+        let cutBtn = message.querySelector('.msg-destroy-btn')
+
+        cutBtn.onclick = () => {
+            message.style.display = "none";
+        }
+    }
 
 </script>
 

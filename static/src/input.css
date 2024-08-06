@@ -49,6 +49,9 @@ nav ul {
 .regular-input {
     @apply bg-transparent border-none text-sm rounded-full block w-full p-2.5 ring-1 ring-inset ring-gray-700 placeholder-gray-400 focus:ring-blue-500 outline-none;
 }
+textarea {
+    @apply !rounded-3xl
+}
 
 
 .forum-input {
