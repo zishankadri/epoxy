@@ -7,6 +7,8 @@ from django.contrib import messages
 
 import os
 
+from django.core.mail import send_mail
+
 
 def home(request): 
     language = request.session.get(settings.MY_LANGUAGE_COOKIE_NAME, 'en')

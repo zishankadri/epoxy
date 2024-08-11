@@ -186,3 +186,14 @@ MY_LANGUAGES = [
     "en",
     "es",
 ]
+
+
+# Email Service
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.epoxy214.com'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'sales@epoxy214.com'  # Username from the image
+EMAIL_HOST_PASSWORD = 'Fuffy2416!'  # Replace with the actual email password
+DEFAULT_FROM_EMAIL = 'sales@epoxy214.com'
