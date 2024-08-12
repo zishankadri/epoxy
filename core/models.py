@@ -32,7 +32,7 @@ class Contact(models.Model):
     email = models.EmailField(max_length=254)
     phone = models.CharField(max_length=14)
     message = models.TextField()
-    image = models.FileField(upload_to="contact_media/", max_length=100)
+    image = models.FileField(upload_to="contact_media/", max_length=100, blank=True, null=True) # Optional image field
 
     contact_method = models.CharField(choices=CONTACT_METHOD_CHOICES, max_length=50)
     

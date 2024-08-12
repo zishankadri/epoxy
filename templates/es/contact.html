@@ -34,7 +34,7 @@
         </div>
 
         <div class="flex flex-col justify-between items-center lg:items-start lg:flex-row gap-8">
-            <form method="post" class="gri flex flex-col gap-4 items-end sm:max-w-[40%] w-full">
+            <form method="post" class="gri flex flex-col gap-4 items-end sm:max-w-[40%] w-full" enctype="multipart/form-data">
                 {% csrf_token %}
                 <!-- Full name -->
                 <div class="w-full">

@@ -8,6 +8,8 @@ from django.contrib import messages
 import os
 
 from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.utils.html import format_html
 
 
 def home(request): 
@@ -17,6 +19,10 @@ def home(request):
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            # Send an email to sales@epoxy.com for a new submission
+            send_contact_email(contact)
+
+            messages.success(request, "Thank you for reaching out!")
         else:
             messages.error(request, form.errors)
 
@@ -50,16 +56,19 @@ def home(request):
 
 
 def contact(request):
-    # language = request.COOKIES.get('language', 'en')
-    # if not language: language="en"
     language = request.session.get(settings.MY_LANGUAGE_COOKIE_NAME, 'en')
 
     if request.method == "POST":
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            contact = form.save()
 
-        messages.success(request, "Thank you for reaching out!")
+            # Send an email to sales@epoxy.com for a new submission
+            send_contact_email(contact)
+
+            messages.success(request, "Thank you for reaching out!")
+        else:
+            messages.error(request, form.errors)
 
     form = ContactForm()
 
@@ -112,6 +121,55 @@ def check_media(request, item_id, origin):
     return render(request, f"{ language }/check_media.html", context)
 
 
+def send_contact_email(contact):
+    # Properly formatted HTML content with a table
+    html_content = format_html("""
+    <html>
+    <body style="color: #444444;">
+        <h2>New Submission on Epoxy214.com</h2>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse;">
+            <tr>
+                <th style="text-align: left;">Full Name</th>
+                <td>{}</td>
+            </tr>
+            <tr>
+                <th style="text-align: left;">Email</th>
+                <td>{}</td>
+            </tr>
+            <tr>
+                <th style="text-align: left;">Phone</th>
+                <td>{}</td>
+            </tr>
+            <tr>
+                <th style="text-align: left;">Preferred Contact Method</th>
+                <td>{}</td>
+            </tr>
+            <tr>
+                <th style="text-align: left;">Message</th>
+                <td>{}</td>
+            </tr>
+        </table>
+    </body>
+    </html>
+    """, contact.full_name, contact.email, contact.phone, contact.get_contact_method_display(), contact.message)
+
+    email = EmailMessage(
+        'New submission on Epoxy214.com',
+        html_content,
+        'sales@epoxy214.com',  # From email
+        ['sales@epoxy214.com'],  # Recipient email
+    )
+
+    email.content_subtype = "html"  # To send HTML content
+
+    # Attach the uploaded file
+    if contact.image:
+        email.attach_file(contact.image.path)
+
+    # Send the email
+    email.send()
+
+
 # APIs
 def change_lang(request):
     lang_code = request.GET.get('lang_code')
@@ -124,3 +182,5 @@ def change_lang(request):
         return response
     else:
         return JsonResponse({"error": f"Invalid language code {lang_code} "}, status=400)
+    
+
