@@ -18,7 +18,8 @@ def home(request):
     if request.method == "POST":
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            contact = form.save()
+
             # Send an email to sales@epoxy.com for a new submission
             send_contact_email(contact)
 

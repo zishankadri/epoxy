@@ -95,24 +95,6 @@ def create_row_page(request, model_name):
 
         'tables': models,
     }
-    if name == "Sub Chapters":
-        levels = Level.objects.all()
-        subjects = Subject.objects.all()
-        # Create a select input field for levels
-        levels_select = '<select name="selected_level" id="id_selected_level">'
-        levels_select += f'<option value=""> ---- </option>'
-        for level in levels:
-            levels_select += f'<option value="{level.id}">{level.name}</option>'
-        levels_select += '</select>'
-
-        # Create a select input field for subjects
-        subjects_select = '<select name="selected_subject" id="id_selected_subject">'
-        subjects_select += f'<option value=""> ---- </option>'
-        for subject in subjects:
-            subjects_select += f'<option value="{subject.id}">{subject.name}</option>'
-        subjects_select += '</select>'
-        context["levels"] = levels_select
-        context["subjects"] = subjects_select
 
     return render(request, "customadmin/create_row.html", context)
 

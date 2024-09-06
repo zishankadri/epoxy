@@ -1168,28 +1168,12 @@ input[type="number"]::-webkit-inner-spin-button,
   height: 2.25rem;
 }
 
-.h-\[1050px\] {
-  height: 1050px;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-\[1100px\] {
-  height: 1100px;
-}
-
 .h-\[1200px\] {
   height: 1200px;
 }
 
-.h-\[1300px\] {
-  height: 1300px;
-}
-
-.h-\[110px\] {
-  height: 110px;
+.h-full {
+  height: 100%;
 }
 
 .max-h-\[100vh\] {
